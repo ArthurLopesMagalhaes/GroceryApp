@@ -1,5 +1,5 @@
 import { Container } from "./styles";
-import BackgroundSvg from "../../assets/background.svg";
+import BackgroundPng from "../../assets/background.png";
 import { ReactNode } from "react";
 
 type Props = {
@@ -7,5 +7,5 @@ type Props = {
 };
 
 export const Background = ({ children }: Props) => {
-  return <Container source={BackgroundSvg}>{children}</Container>;
+  return <Container source={BackgroundPng}>{children}</Container>;
 };

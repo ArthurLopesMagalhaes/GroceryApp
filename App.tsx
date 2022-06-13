@@ -4,6 +4,7 @@ import {
 } from "@expo-google-fonts/source-sans-pro";
 import AppLoading from "expo-app-loading";
 import { useFonts } from "expo-font";
+import { StatusBar } from "react-native";
 
 import { SignIn } from "./src/screens/SignIn";
 
@@ -17,5 +18,15 @@ export default function App() {
     return <AppLoading />;
   }
 
-  return <SignIn />;
+  return (
+    <>
+      <StatusBar
+        animated={true}
+        backgroundColor="transparent"
+        barStyle="dark-content"
+        translucent={true}
+      />
+      <SignIn />
+    </>
+  );
 }

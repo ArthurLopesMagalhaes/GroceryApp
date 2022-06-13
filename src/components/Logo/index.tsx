@@ -4,9 +4,7 @@ import LogoSvg from "../../assets/logo.svg";
 export const Logo = () => {
   return (
     <Container>
-      <LogoImg source={LogoSvg} />
-
-      <BrandName>Verdo</BrandName>
+      <LogoSvg />
     </Container>
   );
 };
