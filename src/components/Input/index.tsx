@@ -8,18 +8,20 @@ import {
   styles,
 } from "./styles";
 
-type Props = {
+import { TextInputProps } from "react-native";
+
+type Props = TextInputProps & {
   label: string;
-  placeholder: string;
+
   icon: React.FC<SvgProps>;
 };
 
-export const Input = ({ label, placeholder, icon: Icon }: Props) => {
+export const Input = ({ label, icon: Icon, ...rest }: Props) => {
   return (
     <Container style={styles.shadow}>
       <Label>{label}</Label>
       <InputContainer>
-        <InputField placeholder={placeholder} />
+        <InputField {...rest} />
         <IconContainer>
           <Icon width={24} height={24} />
         </IconContainer>

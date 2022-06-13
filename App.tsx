@@ -7,6 +7,7 @@ import { useFonts } from "expo-font";
 import { StatusBar } from "react-native";
 
 import { SignIn } from "./src/screens/SignIn";
+import { SignUp } from "./src/screens/SignUp";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -26,7 +27,7 @@ export default function App() {
         barStyle="dark-content"
         translucent={true}
       />
-      <SignIn />
+      <SignUp />
     </>
   );
 }

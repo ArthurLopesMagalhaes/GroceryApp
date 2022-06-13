@@ -35,9 +35,14 @@ export const SignIn = () => {
                 placeholder="Email or Phone Number"
                 icon={() => <View />}
               />
-              <Input label="Password*" placeholder="Password" icon={EyeSvg} />
+              <Input
+                label="Password*"
+                placeholder="Password"
+                icon={EyeSvg}
+                secureTextEntry
+              />
               <RememberMe />
-              <Button />
+              <Button label="Sign in" />
               <Link label="Forgot the Password?" />
               <SimpleText>or continue with</SimpleText>
               <SocialLoginContainer>

@@ -3,10 +3,14 @@ import { LinearGradient } from "expo-linear-gradient";
 import { theme } from "../../global/theme";
 import { RectButton } from "react-native-gesture-handler";
 
-export const Button = () => {
+type Props = {
+  label: string;
+};
+
+export const Button = ({ label }: Props) => {
   return (
     <RectButton style={styles.button}>
-      <Label>Sign In</Label>
+      <Label>{label}</Label>
     </RectButton>
   );
 };
