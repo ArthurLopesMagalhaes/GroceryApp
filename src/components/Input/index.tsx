@@ -9,6 +9,7 @@ import {
 } from "./styles";
 
 import { TextInputProps } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 type Props = TextInputProps & {
   label: string;
@@ -23,7 +24,9 @@ export const Input = ({ label, icon: Icon, ...rest }: Props) => {
       <InputContainer>
         <InputField {...rest} />
         <IconContainer>
-          <Icon width={24} height={24} />
+          <TouchableOpacity>
+            <Icon width={24} height={24} />
+          </TouchableOpacity>
         </IconContainer>
       </InputContainer>
     </Container>

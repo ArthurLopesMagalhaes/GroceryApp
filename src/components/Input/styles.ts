@@ -10,7 +10,7 @@ export const Container = styled.View`
 export const Label = styled.Text`
   font-family: ${theme.fonts.semibold};
   font-size: 16px;
-  color: #2c3a4b;
+  color: ${theme.colors.neutral_1};
   margin-bottom: 8px;
   margin-left: 24px;
 `;
@@ -20,7 +20,7 @@ export const InputContainer = styled.View`
   align-items: center;
   padding: 12px 24px;
   border-radius: 48px;
-  border: 1px solid #ebeef2;
+  border: 1px solid ${theme.colors.neutral_8};
   width: 100%;
   height: 48px;
 `;
