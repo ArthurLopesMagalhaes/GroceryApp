@@ -10,6 +10,7 @@ import { PaymentMenthod } from "./src/screens/PaymentMethod";
 
 import { SignIn } from "./src/screens/SignIn";
 import { SignUp } from "./src/screens/SignUp";
+import { UploadPhoto } from "./src/screens/UploadPhoto";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -29,7 +30,7 @@ export default function App() {
         barStyle="dark-content"
         translucent={true}
       />
-      <PaymentMenthod />
+      <UploadPhoto />
     </>
   );
 }
