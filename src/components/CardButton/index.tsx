@@ -1,18 +1,12 @@
+import { ReactNode } from "react";
 import { SvgProps } from "react-native-svg";
 import { Circle, Container, Legend } from "./styles";
 
 type Props = {
-  legend: string;
-  icon: React.FC<SvgProps>;
+  height: number;
+  children: ReactNode;
 };
 
-export const CardButton = ({ legend, icon: Icon }: Props) => {
-  return (
-    <Container>
-      <Circle>
-        <Icon width={32} height={32} />
-      </Circle>
-      <Legend>{legend}</Legend>
-    </Container>
-  );
+export const CardButton = ({ height, children }: Props) => {
+  return <Container height={height}>{children}</Container>;
 };

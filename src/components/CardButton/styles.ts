@@ -1,9 +1,14 @@
 import styled from "styled-components/native";
 import { theme } from "../../global/theme";
 
-export const Container = styled.TouchableOpacity`
+type ContainerProps = {
+  height: number;
+};
+
+export const Container = styled.TouchableOpacity<ContainerProps>`
   width: 100%;
-  height: 160px;
+  height: ${(props) => props.height}px;
+  padding: 24px;
   border-radius: 20px;
   border: 1px solid ${theme.colors.neutral_8};
   margin-bottom: 24px;

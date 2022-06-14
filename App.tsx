@@ -7,6 +7,7 @@ import { useFonts } from "expo-font";
 import { StatusBar } from "react-native";
 import { Congrats } from "./src/screens/Congrats";
 import { FillBio } from "./src/screens/FillBio";
+import { ForgotPassword } from "./src/screens/ForgotPassword";
 import { PaymentMenthod } from "./src/screens/PaymentMethod";
 import { SetLocation } from "./src/screens/SetLocation";
 
@@ -32,7 +33,7 @@ export default function App() {
         barStyle="dark-content"
         translucent={true}
       />
-      <Congrats />
+      <ForgotPassword />
     </>
   );
 }

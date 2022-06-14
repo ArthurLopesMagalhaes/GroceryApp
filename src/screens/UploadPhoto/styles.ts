@@ -28,6 +28,14 @@ export const Content = styled.View`
 
 export const CardsContainer = styled.View`
   margin-top: 24px;
+  width: 100%;
+`;
+
+export const Legend = styled.Text`
+  font-family: ${theme.fonts.semibold};
+  font-size: 16px;
+  color: ${theme.colors.black};
+  margin-top: 10px;
 `;
 
 export const ProfilePhotoContainer = styled.View`

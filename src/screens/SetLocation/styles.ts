@@ -105,3 +105,10 @@ export const EditIcon = styled.View`
   align-items: center;
   background-color: ${theme.colors.primary};
 `;
+
+export const Legend = styled.Text`
+  font-family: ${theme.fonts.semibold};
+  font-size: 16px;
+  color: ${theme.colors.black};
+  margin-top: 10px;
+`;

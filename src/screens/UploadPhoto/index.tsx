@@ -9,6 +9,7 @@ import {
   Content,
   EditButton,
   Heading,
+  Legend,
   ProfilePhotoContainer,
 } from "./styles";
 
@@ -18,6 +19,7 @@ import { CardButton } from "../../components/CardButton";
 
 import CameraSvg from "../../assets/camera.svg";
 import FolderSvg from "../../assets/folder.svg";
+import { CircleIcon } from "../../components/CircleIcon";
 
 export const UploadPhoto = () => {
   return (
@@ -28,17 +30,27 @@ export const UploadPhoto = () => {
           This data will be displayed in your account profile for security
         </Heading>
         <Content>
-          <ProfilePhotoContainer>
+          {/* <ProfilePhotoContainer>
             <Image source={ProfileImg} />
             <EditButton>
               <PencilSvg />
             </EditButton>
-          </ProfilePhotoContainer>
+          </ProfilePhotoContainer> */}
 
-          {/* <CardsContainer>
-            <CardButton legend="Take photo" icon={CameraSvg} />
-            <CardButton legend="From gallery" icon={FolderSvg} />
-          </CardsContainer> */}
+          <CardsContainer>
+            <CardButton height={160}>
+              <CircleIcon>
+                <CameraSvg />
+              </CircleIcon>
+              <Legend>Take a Photo</Legend>
+            </CardButton>
+            <CardButton height={160}>
+              <CircleIcon>
+                <FolderSvg />
+              </CircleIcon>
+              <Legend>Take a Photo</Legend>
+            </CardButton>
+          </CardsContainer>
           <Button label="Next" />
         </Content>
       </Container>

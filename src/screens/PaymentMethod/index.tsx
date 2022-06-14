@@ -9,6 +9,7 @@ import { PaymentMethodItem } from "../../components/PaymentMethodItem";
 import PaypalSvg from "../../assets/paypal.svg";
 import VisaSvg from "../../assets/visa.svg";
 import PayoneerSvg from "../../assets/payoneer.svg";
+import { CardButton } from "../../components/CardButton";
 
 export const PaymentMenthod = () => {
   return (
@@ -20,9 +21,15 @@ export const PaymentMenthod = () => {
         </Heading>
         <Content>
           <CardsContainer>
-            <PaymentMethodItem icon={PaypalSvg} />
-            <PaymentMethodItem icon={VisaSvg} />
-            <PaymentMethodItem icon={PayoneerSvg} />
+            <CardButton height={80}>
+              <PaypalSvg />
+            </CardButton>
+            <CardButton height={80}>
+              <VisaSvg />
+            </CardButton>
+            <CardButton height={80}>
+              <PayoneerSvg />
+            </CardButton>
           </CardsContainer>
           <Button label="Next" />
         </Content>
