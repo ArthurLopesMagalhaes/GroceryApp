@@ -39,7 +39,7 @@ export const ProfilePhotoContainer = styled.View`
   position: relative;
 `;
 
-export const EditButton = styled.View`
+export const EditButton = styled.TouchableHighlight`
   width: 50px;
   height: 50px;
   border-radius: 25px;

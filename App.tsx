@@ -7,6 +7,7 @@ import { useFonts } from "expo-font";
 import { StatusBar } from "react-native";
 import { FillBio } from "./src/screens/FillBio";
 import { PaymentMenthod } from "./src/screens/PaymentMethod";
+import { SetLocation } from "./src/screens/SetLocation";
 
 import { SignIn } from "./src/screens/SignIn";
 import { SignUp } from "./src/screens/SignUp";
@@ -30,7 +31,7 @@ export default function App() {
         barStyle="dark-content"
         translucent={true}
       />
-      <UploadPhoto />
+      <SetLocation />
     </>
   );
 }

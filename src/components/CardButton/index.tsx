@@ -6,11 +6,11 @@ type Props = {
   icon: React.FC<SvgProps>;
 };
 
-export const Card = ({ legend, icon: Icon }: Props) => {
+export const CardButton = ({ legend, icon: Icon }: Props) => {
   return (
     <Container>
       <Circle>
-        <Icon />
+        <Icon width={32} height={32} />
       </Circle>
       <Legend>{legend}</Legend>
     </Container>

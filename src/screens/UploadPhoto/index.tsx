@@ -4,6 +4,7 @@ import { Header } from "../../components/Header";
 import ProfileImg from "../../assets/profile.png";
 
 import {
+  CardsContainer,
   Container,
   Content,
   EditButton,
@@ -13,6 +14,10 @@ import {
 
 import PencilSvg from "../../assets/pencil.svg";
 import { Image } from "react-native";
+import { CardButton } from "../../components/CardButton";
+
+import CameraSvg from "../../assets/camera.svg";
+import FolderSvg from "../../assets/folder.svg";
 
 export const UploadPhoto = () => {
   return (
@@ -31,8 +36,8 @@ export const UploadPhoto = () => {
           </ProfilePhotoContainer>
 
           {/* <CardsContainer>
-            <Card legend="Take photo" icon={CameraSvg} />
-            <Card legend="From gallery" icon={FolderSvg} />
+            <CardButton legend="Take photo" icon={CameraSvg} />
+            <CardButton legend="From gallery" icon={FolderSvg} />
           </CardsContainer> */}
           <Button label="Next" />
         </Content>

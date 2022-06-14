@@ -8,7 +8,7 @@ export const Container = styled.View`
   align-items: center;
   margin-top: 29px;
 `;
-export const ArrowContainer = styled.View`
+export const ArrowContainer = styled.TouchableOpacity`
   justify-content: center;
   align-items: center;
   width: 36px;
