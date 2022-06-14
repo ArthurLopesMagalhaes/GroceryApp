@@ -9,6 +9,7 @@ import { Congrats } from "./src/screens/Congrats";
 import { FillBio } from "./src/screens/FillBio";
 import { ForgotPassword } from "./src/screens/ForgotPassword";
 import { PaymentMenthod } from "./src/screens/PaymentMethod";
+import { ResetPassword } from "./src/screens/ResetPassword";
 import { SetLocation } from "./src/screens/SetLocation";
 
 import { SignIn } from "./src/screens/SignIn";
@@ -33,7 +34,7 @@ export default function App() {
         barStyle="dark-content"
         translucent={true}
       />
-      <ForgotPassword />
+      <ResetPassword />
     </>
   );
 }
