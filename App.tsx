@@ -5,6 +5,7 @@ import {
 import AppLoading from "expo-app-loading";
 import { useFonts } from "expo-font";
 import { StatusBar } from "react-native";
+import { Congrats } from "./src/screens/Congrats";
 import { FillBio } from "./src/screens/FillBio";
 import { PaymentMenthod } from "./src/screens/PaymentMethod";
 import { SetLocation } from "./src/screens/SetLocation";
@@ -31,7 +32,7 @@ export default function App() {
         barStyle="dark-content"
         translucent={true}
       />
-      <SetLocation />
+      <Congrats />
     </>
   );
 }
