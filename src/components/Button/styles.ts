@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginTop: 20,
-    backgroundColor: theme.colors.primary800,
+    backgroundColor: theme.colors.primary,
     borderRadius: 32,
     overflow: "hidden",
     marginBottom: 20,

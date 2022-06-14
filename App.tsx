@@ -6,6 +6,7 @@ import AppLoading from "expo-app-loading";
 import { useFonts } from "expo-font";
 import { StatusBar } from "react-native";
 import { FillBio } from "./src/screens/FillBio";
+import { PaymentMenthod } from "./src/screens/PaymentMethod";
 
 import { SignIn } from "./src/screens/SignIn";
 import { SignUp } from "./src/screens/SignUp";
@@ -28,7 +29,7 @@ export default function App() {
         barStyle="dark-content"
         translucent={true}
       />
-      <FillBio />
+      <PaymentMenthod />
     </>
   );
 }
