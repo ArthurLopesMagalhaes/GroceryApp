@@ -14,6 +14,7 @@ import { SetLocation } from "./src/screens/SetLocation";
 
 import { SignIn } from "./src/screens/SignIn";
 import { SignUp } from "./src/screens/SignUp";
+import { SplashScreen } from "./src/screens/SplashScreen";
 import { UploadPhoto } from "./src/screens/UploadPhoto";
 
 export default function App() {
@@ -34,7 +35,7 @@ export default function App() {
         barStyle="dark-content"
         translucent={true}
       />
-      <ResetPassword />
+      <SplashScreen />
     </>
   );
 }
