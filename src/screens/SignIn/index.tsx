@@ -17,9 +17,29 @@ import { SocialLoginButton } from "../../components/SocialLoginButton";
 import FacebookSvg from "../../assets/facebook.svg";
 import GoogleSvg from "../../assets/google.svg";
 import EyeSvg from "../../assets/eye.svg";
-import { KeyboardAvoidingView, Platform, ScrollView, View } from "react-native";
+import {
+  Alert,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  View,
+} from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 export const SignIn = () => {
+  const navigation = useNavigation();
+
+  const doSignIn = () => {
+    navigation.navigate("SignUp");
+  };
+
+  const goToSignUp = () => {
+    navigation.navigate("SignUp");
+  };
+  const goToForgotPassword = () => {
+    navigation.navigate("ForgotPassword");
+  };
+
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -42,8 +62,8 @@ export const SignIn = () => {
                 secureTextEntry
               />
               <RememberMe />
-              <Button label="Sign in" />
-              <Link label="Forgot the Password?" />
+              <Button label="Sign in" onPress={doSignIn} />
+              <Link label="Forgot the Password?" onPress={goToForgotPassword} />
               <SimpleText>or continue with</SimpleText>
               <SocialLoginContainer>
                 <SocialLoginButton icon={FacebookSvg} label="Facebook" />
@@ -51,7 +71,7 @@ export const SignIn = () => {
               </SocialLoginContainer>
               <DontHaveAccountContainer>
                 <Label>Don't have an account?</Label>
-                <Link label="Sign up" />
+                <Link label="Sign up" onPress={goToSignUp} />
               </DontHaveAccountContainer>
             </Form>
           </Container>

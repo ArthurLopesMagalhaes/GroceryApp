@@ -10,8 +10,15 @@ import PaypalSvg from "../../assets/paypal.svg";
 import VisaSvg from "../../assets/visa.svg";
 import PayoneerSvg from "../../assets/payoneer.svg";
 import { CardButton } from "../../components/CardButton";
+import { useNavigation } from "@react-navigation/native";
 
-export const PaymentMenthod = () => {
+export const PaymentMethod = () => {
+  const navigation = useNavigation();
+
+  const goToUploadPhoto = () => {
+    navigation.navigate("UploadPhoto");
+  };
+
   return (
     <Background>
       <Container>
@@ -31,7 +38,7 @@ export const PaymentMenthod = () => {
               <PayoneerSvg />
             </CardButton>
           </CardsContainer>
-          <Button label="Next" />
+          <Button label="Next" onPress={goToUploadPhoto} />
         </Content>
       </Container>
     </Background>

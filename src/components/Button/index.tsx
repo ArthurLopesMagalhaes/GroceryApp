@@ -1,15 +1,15 @@
 import { Label, styles } from "./styles";
 import { LinearGradient } from "expo-linear-gradient";
 import { theme } from "../../global/theme";
-import { RectButton } from "react-native-gesture-handler";
+import { RectButton, RectButtonProps } from "react-native-gesture-handler";
 
-type Props = {
+type Props = RectButtonProps & {
   label: string;
 };
 
-export const Button = ({ label }: Props) => {
+export const Button = ({ label, ...rest }: Props) => {
   return (
-    <RectButton style={styles.button}>
+    <RectButton {...rest} style={styles.button}>
       <Label>{label}</Label>
     </RectButton>
   );

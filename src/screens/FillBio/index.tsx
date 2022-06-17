@@ -6,8 +6,15 @@ import { Input } from "../../components/Input";
 import { Container, Form, Heading } from "./styles";
 import CalendarSvg from "../../assets/calendar.svg";
 import ArrowDownSvg from "../../assets/arrowdown.svg";
+import { useNavigation } from "@react-navigation/native";
 
 export const FillBio = () => {
+  const navigation = useNavigation();
+
+  const goToPaymentMethod = () => {
+    navigation.navigate("PaymentMethod");
+  };
+
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -50,7 +57,7 @@ export const FillBio = () => {
                 placeholder="Your address"
                 icon={() => <View />}
               />
-              <Button label="Next" />
+              <Button label="Next" onPress={goToPaymentMethod} />
             </Form>
           </Container>
         </Background>

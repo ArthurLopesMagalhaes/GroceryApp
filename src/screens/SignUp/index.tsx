@@ -18,8 +18,21 @@ import FacebookSvg from "../../assets/facebook.svg";
 import GoogleSvg from "../../assets/google.svg";
 import EyeSvg from "../../assets/eye.svg";
 import { KeyboardAvoidingView, Platform, ScrollView, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 export const SignUp = () => {
+  const navigation = useNavigation();
+
+  const doSignUp = () => {
+    navigation.navigate("FillBio");
+  };
+
+  const goToSignIn = () => {
+    navigation.reset({
+      routes: [{ name: "SignIn" }],
+    });
+  };
+
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -42,7 +55,7 @@ export const SignUp = () => {
                 secureTextEntry
               />
               <RememberMe />
-              <Button label="Sign up" />
+              <Button label="Sign up" onPress={doSignUp} />
               <Link label="Forgot the Password?" />
               <SimpleText>or continue with</SimpleText>
               <SocialLoginContainer>
@@ -51,7 +64,7 @@ export const SignUp = () => {
               </SocialLoginContainer>
               <DontHaveAccountContainer>
                 <Label>Already have an account?</Label>
-                <Link label="Sign in" />
+                <Link label="Sign in" onPress={goToSignIn} />
               </DontHaveAccountContainer>
             </Form>
           </Container>

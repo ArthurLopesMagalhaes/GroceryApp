@@ -1,12 +1,13 @@
+import { TouchableOpacityProps } from "react-native";
 import { Container, Label } from "./styles";
 
-type Props = {
+type Props = TouchableOpacityProps & {
   label: string;
 };
 
-export const Link = ({ label }: Props) => {
+export const Link = ({ label, ...rest }: Props) => {
   return (
-    <Container>
+    <Container {...rest}>
       <Label>{label}</Label>
     </Container>
   );

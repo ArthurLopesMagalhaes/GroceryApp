@@ -20,8 +20,15 @@ import { CardButton } from "../../components/CardButton";
 import CameraSvg from "../../assets/camera.svg";
 import FolderSvg from "../../assets/folder.svg";
 import { CircleIcon } from "../../components/CircleIcon";
+import { useNavigation } from "@react-navigation/native";
 
 export const UploadPhoto = () => {
+  const navigation = useNavigation();
+
+  const goToSetLocation = () => {
+    navigation.navigate("SetLocation");
+  };
+
   return (
     <Background>
       <Container>
@@ -51,7 +58,7 @@ export const UploadPhoto = () => {
               <Legend>Take a Photo</Legend>
             </CardButton>
           </CardsContainer>
-          <Button label="Next" />
+          <Button label="Next" onPress={goToSetLocation} />
         </Content>
       </Container>
     </Background>

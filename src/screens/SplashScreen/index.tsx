@@ -1,9 +1,17 @@
 import { Container, Footer, Phrase, Title } from "./styles";
 import SplashImg from "../../assets/splashImage.png";
 import { Button } from "../../components/Button";
-import { StatusBar } from "react-native";
+import { Alert, StatusBar } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 export const SplashScreen = () => {
+  const navigation = useNavigation();
+
+  const handleNextButton = () => {
+    navigation.navigate("SignUp");
+    console.log("clicou");
+  };
+
   return (
     <Container source={SplashImg} resizeMode="cover">
       <StatusBar
@@ -15,7 +23,7 @@ export const SplashScreen = () => {
       <Footer>
         <Title>Verdo</Title>
         <Phrase>The best grocery ordering & delivery app of the century</Phrase>
-        <Button label="Next" />
+        <Button label="Next" onPress={handleNextButton} />
       </Footer>
     </Container>
   );

@@ -5,10 +5,12 @@ import {
 import AppLoading from "expo-app-loading";
 import { useFonts } from "expo-font";
 import { StatusBar } from "react-native";
+import { gestureHandlerRootHOC } from "react-native-gesture-handler";
+import { MainRoutes } from "./src/routes";
 import { Congrats } from "./src/screens/Congrats";
 import { FillBio } from "./src/screens/FillBio";
-import { ForgotPassword } from "./src/screens/ForgotPassword";
-import { PaymentMenthod } from "./src/screens/PaymentMethod";
+import { Home } from "./src/screens/Home";
+
 import { ResetPassword } from "./src/screens/ResetPassword";
 import { SetLocation } from "./src/screens/SetLocation";
 
@@ -17,7 +19,7 @@ import { SignUp } from "./src/screens/SignUp";
 import { SplashScreen } from "./src/screens/SplashScreen";
 import { UploadPhoto } from "./src/screens/UploadPhoto";
 
-export default function App() {
+function App() {
   const [fontsLoaded] = useFonts({
     SourceSansPro_400Regular,
     SourceSansPro_600SemiBold,
@@ -33,9 +35,10 @@ export default function App() {
         animated={true}
         backgroundColor="transparent"
         barStyle="dark-content"
-        translucent={true}
       />
-      <SplashScreen />
+      <Home />
     </>
   );
 }
+
+export default gestureHandlerRootHOC(App);

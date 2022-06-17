@@ -21,8 +21,15 @@ import { CardButton } from "../../components/CardButton";
 import MarkerSvg from "../../assets/marker.svg";
 import PencilSvg from "../../assets/pencil.svg";
 import { CircleIcon } from "../../components/CircleIcon";
+import { useNavigation } from "@react-navigation/native";
 
 export const SetLocation = () => {
+  const navigation = useNavigation();
+
+  const goToCongrats = () => {
+    navigation.navigate("Congrats");
+  };
+
   return (
     <Background>
       <Container>
@@ -50,7 +57,7 @@ export const SetLocation = () => {
               <PencilSvg width={16} />
             </EditIcon>
           </AddressCard> */}
-          <Button label="Set Location" />
+          <Button label="Set Location" onPress={goToCongrats} />
         </Content>
       </Container>
     </Background>

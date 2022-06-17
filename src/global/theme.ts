@@ -69,6 +69,11 @@ export const theme = {
     accent_6: "#E1604D",
     accent_6_opacity: "#E1604D26",
     background: "#2218741A",
+
+    smoother_1: "#FFFBFB",
+    smoother_2: "#F6F9FF",
+    smoother_3: "#F6F8FB",
+    smoother_4: "#EAFFF3",
   },
   fonts: {
     regular: "SourceSansPro_400Regular",
