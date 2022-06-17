@@ -6,9 +6,11 @@ import {
   FlatList,
   View,
 } from "react-native";
+
+import { Container } from "../../components/Container";
 import { Background } from "../../components/Background";
 import {
-  Container,
+  ContainerAvoidTabBar,
   FlatListContainer,
   Greeting,
   IconsContainer,
@@ -28,7 +30,7 @@ import { PopularStuff } from "./components/PopularStuff";
 import { GroceryCard, StoreProps } from "./components/GroceryCard";
 
 import LovyGrocerySvg from "../../assets/lovy-grocery.svg";
-import { TabBar } from "../../components/TabBar";
+import { CustomTabBar } from "../../components/CustomTabBar";
 
 const stores: StoreProps[] = [
   {
@@ -54,8 +56,8 @@ const stores: StoreProps[] = [
 export const Home = () => {
   return (
     <Background>
-      <Container>
-        <ScrollView showsVerticalScrollIndicator={false}>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <ContainerAvoidTabBar>
           <NavContainer>
             <Left>
               <Logo source={LogoImg} />
@@ -86,9 +88,8 @@ export const Home = () => {
             />
           </FlatListContainer>
           <PopularStuff title="Popular Grocery" subtitle="See all" />
-        </ScrollView>
-        <TabBar />
-      </Container>
+        </ContainerAvoidTabBar>
+      </ScrollView>
     </Background>
   );
 };

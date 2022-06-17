@@ -3,7 +3,7 @@ import { Background } from "../../components/Background";
 import { Button } from "../../components/Button";
 import { Header } from "../../components/Header";
 
-import { Container, Content, Heading, InputsContainer } from "./styles";
+import { Content, Heading, InputsContainer } from "./styles";
 
 import { PaymentMethodItem } from "../../components/PaymentMethodItem";
 import PaypalSvg from "../../assets/paypal.svg";
@@ -11,6 +11,7 @@ import VisaSvg from "../../assets/visa.svg";
 import PayoneerSvg from "../../assets/payoneer.svg";
 import { CardButton } from "../../components/CardButton";
 import { Input } from "../../components/Input";
+import { Container } from "../../components/Container";
 
 import EyeSvg from "../../assets/eye.svg";
 

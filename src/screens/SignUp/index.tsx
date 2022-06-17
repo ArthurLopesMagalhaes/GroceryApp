@@ -3,7 +3,7 @@ import { RememberMe } from "../../components/RememberMe";
 import { Input } from "../../components/Input";
 import { Logo } from "../../components/Logo";
 import {
-  Container,
+  // Container,
   Heading,
   Form,
   DontHaveAccountContainer,
@@ -19,6 +19,7 @@ import GoogleSvg from "../../assets/google.svg";
 import EyeSvg from "../../assets/eye.svg";
 import { KeyboardAvoidingView, Platform, ScrollView, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { Container } from "../../components/Container";
 
 export const SignUp = () => {
   const navigation = useNavigation();

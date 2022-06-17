@@ -5,7 +5,6 @@ import ProfileImg from "../../assets/profile.png";
 
 import {
   CardsContainer,
-  Container,
   Content,
   EditButton,
   Heading,
@@ -21,6 +20,7 @@ import CameraSvg from "../../assets/camera.svg";
 import FolderSvg from "../../assets/folder.svg";
 import { CircleIcon } from "../../components/CircleIcon";
 import { useNavigation } from "@react-navigation/native";
+import { Container } from "../../components/Container";
 
 export const UploadPhoto = () => {
   const navigation = useNavigation();

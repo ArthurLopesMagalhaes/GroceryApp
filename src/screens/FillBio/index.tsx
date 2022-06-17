@@ -3,10 +3,11 @@ import { Background } from "../../components/Background";
 import { Button } from "../../components/Button";
 import { Header } from "../../components/Header";
 import { Input } from "../../components/Input";
-import { Container, Form, Heading } from "./styles";
+import { Form, Heading } from "./styles";
 import CalendarSvg from "../../assets/calendar.svg";
 import ArrowDownSvg from "../../assets/arrowdown.svg";
 import { useNavigation } from "@react-navigation/native";
+import { Container } from "../../components/Container";
 
 export const FillBio = () => {
   const navigation = useNavigation();

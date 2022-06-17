@@ -2,12 +2,6 @@ import styled from "styled-components/native";
 
 import { theme } from "../../global/theme";
 
-export const Container = styled.SafeAreaView`
-  flex: 1;
-  width: 100%;
-  padding: 24px;
-`;
-
 export const NavContainer = styled.View`
   flex-direction: row;
   align-items: center;
@@ -40,4 +34,11 @@ export const Greeting = styled.Text`
 export const FlatListContainer = styled.View`
   height: 206px;
   margin-bottom: 32px;
+`;
+
+export const ContainerAvoidTabBar = styled.SafeAreaView`
+  flex: 1;
+  width: 100%;
+  padding: 24px;
+  padding-bottom: 115px;
 `;

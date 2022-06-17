@@ -5,7 +5,6 @@ import { Header } from "../../components/Header";
 import {
   Address,
   AddressCard,
-  Container,
   Content,
   EditIcon,
   Heading,
@@ -22,6 +21,7 @@ import MarkerSvg from "../../assets/marker.svg";
 import PencilSvg from "../../assets/pencil.svg";
 import { CircleIcon } from "../../components/CircleIcon";
 import { useNavigation } from "@react-navigation/native";
+import { Container } from "../../components/Container";
 
 export const SetLocation = () => {
   const navigation = useNavigation();

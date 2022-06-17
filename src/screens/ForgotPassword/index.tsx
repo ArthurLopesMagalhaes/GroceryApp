@@ -1,11 +1,10 @@
 import { Background } from "../../components/Background";
 import { Button } from "../../components/Button";
 import { Header } from "../../components/Header";
-
+import { Container } from "../../components/Container";
 import {
   CardsContainer,
   CodeContentBox,
-  Container,
   ContenScreen,
   Content,
   Heading,

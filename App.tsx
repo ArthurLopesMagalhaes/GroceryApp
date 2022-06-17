@@ -9,7 +9,9 @@ import { gestureHandlerRootHOC } from "react-native-gesture-handler";
 import { MainRoutes } from "./src/routes";
 import { Congrats } from "./src/screens/Congrats";
 import { FillBio } from "./src/screens/FillBio";
+import { ForgotPassword } from "./src/screens/ForgotPassword";
 import { Home } from "./src/screens/Home";
+import { PopularStore } from "./src/screens/PopularStore";
 
 import { ResetPassword } from "./src/screens/ResetPassword";
 import { SetLocation } from "./src/screens/SetLocation";
@@ -35,8 +37,9 @@ function App() {
         animated={true}
         backgroundColor="transparent"
         barStyle="dark-content"
+        translucent={true}
       />
-      <Home />
+      <MainRoutes />
     </>
   );
 }

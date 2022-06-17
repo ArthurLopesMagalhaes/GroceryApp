@@ -10,7 +10,9 @@ type Props = RectButtonProps & {
 export const Button = ({ label, ...rest }: Props) => {
   return (
     <RectButton {...rest} style={styles.button}>
-      <Label>{label}</Label>
+      <LinearGradient colors={["#4FE58A", "#19C179"]} style={styles.button}>
+        <Label>{label}</Label>
+      </LinearGradient>
     </RectButton>
   );
 };

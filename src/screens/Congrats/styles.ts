@@ -1,13 +1,6 @@
 import styled from "styled-components/native";
 import { theme } from "../../global/theme";
 
-export const Container = styled.View`
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-  padding: 24px;
-`;
-
 export const Heading = styled.Text`
   font-family: ${theme.fonts.semibold};
   font-size: 32px;

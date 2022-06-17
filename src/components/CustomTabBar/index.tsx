@@ -5,8 +5,11 @@ import HomeSvg from "../../assets/home.svg";
 import CartSvg from "../../assets/cart.svg";
 import ChatSvg from "../../assets/chat.svg";
 import ProfileSvg from "../../assets/profile.svg";
+import { useNavigation } from "@react-navigation/native";
 
-export const TabBar = () => {
+export const CustomTabBar = () => {
+  const navigation = useNavigation();
+
   return (
     <Shadow
       getChildRadius={false}
@@ -14,7 +17,7 @@ export const TabBar = () => {
       startColor="#5A6CEA14"
       distance={50}
     >
-      <IconContainer>
+      <IconContainer onPress={() => navigation.navigate("Profile")}>
         <HomeSvg />
         <MenuLabel>Home</MenuLabel>
       </IconContainer>

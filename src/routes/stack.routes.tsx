@@ -11,11 +11,13 @@ import { UploadPhoto } from "../screens/UploadPhoto";
 import { SetLocation } from "../screens/SetLocation";
 import { Congrats } from "../screens/Congrats";
 import { ForgotPassword } from "../screens/ForgotPassword";
+import { Home } from "../screens/Home";
+import { TabRoutes } from "./tab.routes";
 
 export const StackRoutes = () => {
   return (
     <Navigator
-      initialRouteName="SignIn"
+      initialRouteName="TabRoutes"
       screenOptions={{
         headerShown: false,
       }}
@@ -29,6 +31,7 @@ export const StackRoutes = () => {
       <Screen name="SetLocation" component={SetLocation} />
       <Screen name="Congrats" component={Congrats} />
       <Screen name="ForgotPassword" component={ForgotPassword} />
+      <Screen name="TabRoutes" component={TabRoutes} />
     </Navigator>
   );
 };
