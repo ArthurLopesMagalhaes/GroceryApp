@@ -5,7 +5,7 @@ const { Navigator, Screen } = createBottomTabNavigator();
 import { Home } from "../screens/Home";
 import { Order } from "../screens/Order";
 import { Chat } from "../screens/Chat";
-import { Profile } from "../screens/Profile";
+
 import { CustomTabBar } from "../components/CustomTabBar";
 import { StyleSheet, Text, View } from "react-native";
 
@@ -15,7 +15,7 @@ import ChatSvg from "../assets/chat.svg";
 import ProfileSvg from "../assets/profile.svg";
 
 import { theme } from "../global/theme";
-import { HomeStackScreens } from "./stack.routes";
+import { HomeStackScreens, ProfileStackScreens } from "./stack.routes";
 
 export const TabRoutes = () => {
   return (
@@ -83,8 +83,8 @@ export const TabRoutes = () => {
         }}
       />
       <Screen
-        name="Profile"
-        component={Profile}
+        name="ProfileStackScreens"
+        component={ProfileStackScreens}
         options={{
           tabBarIcon: ({ focused }) =>
             focused ? (
@@ -109,12 +109,12 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.primary100,
     justifyContent: "center",
     alignItems: "center",
-    padding: 12,
+    paddingHorizontal: 12,
   },
   tabBarLabel: {
     fontFamily: theme.fonts.semibold,
     fontSize: 18,
     color: theme.colors.primary,
-    marginLeft: 12,
+    marginLeft: 8,
   },
 });

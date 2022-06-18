@@ -16,6 +16,7 @@ export declare global {
       TabRoutes: undefined;
       PopularStore: undefined;
       PopularGrocery: undefined;
+      Favorites: undefined;
     }
   }
 }

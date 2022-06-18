@@ -15,6 +15,8 @@ import { Home } from "../screens/Home";
 import { PopularStore } from "../screens/PopularStore";
 import { TabRoutes } from "./tab.routes";
 import { PopularGrocery } from "../screens/PopularGrocery";
+import { Profile } from "../screens/Profile";
+import { Favorites } from "../screens/Favorite";
 
 export const StackRoutes = () => {
   return (
@@ -49,6 +51,20 @@ export const HomeStackScreens = () => {
       <Screen name="Home" component={Home} />
       <Screen name="PopularStore" component={PopularStore} />
       <Screen name="PopularGrocery" component={PopularGrocery} />
+    </Navigator>
+  );
+};
+
+export const ProfileStackScreens = () => {
+  return (
+    <Navigator
+      initialRouteName="Profile"
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <Screen name="Profile" component={Profile} />
+      <Screen name="Favorites" component={Favorites} />
     </Navigator>
   );
 };
