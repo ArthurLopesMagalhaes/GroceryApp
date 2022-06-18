@@ -14,6 +14,8 @@ export declare global {
       Chat: undefined;
       Profile: undefined;
       TabRoutes: undefined;
+      PopularStore: undefined;
+      PopularGrocery: undefined;
     }
   }
 }

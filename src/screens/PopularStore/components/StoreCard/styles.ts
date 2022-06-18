@@ -1,27 +1,15 @@
-import { StyleSheet } from "react-native";
 import styled from "styled-components/native";
 import { theme } from "../../../../global/theme";
 
-export const styles = StyleSheet.create({
-  shadow: {
-    width: 160,
-    height: 206,
-    borderRadius: 24,
-    backgroundColor: theme.colors.white,
-    marginRight: 24,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-});
-
 export const Container = styled.TouchableOpacity`
-  width: 160px;
-  height: 206px;
+  width: 178px;
+  height: 184px;
   border-radius: 24px;
-  background-color: ${theme.colors.secondary100};
-  margin-right: 24px;
   justify-content: center;
   align-items: center;
+  background-color: ${theme.colors.secondary100};
+  margin-bottom: 32px;
+  elevation: 2;
 `;
 
 export const Title = styled.Text`

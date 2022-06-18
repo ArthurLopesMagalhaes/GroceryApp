@@ -1,17 +1,19 @@
-import { TouchableOpacity } from "react-native";
+import { TouchableOpacity, TouchableOpacityProps } from "react-native";
 import { Container, SubTitle, Title } from "./styles";
 
-type Props = {
+type Props = TouchableOpacityProps & {
   title: string;
   subtitle: string;
 };
 
-export const PopularStuff = ({ title, subtitle }: Props) => {
+export const PopularStuff = ({ title, subtitle, ...rest }: Props) => {
   return (
     <Container>
       <Title>{title}</Title>
       <TouchableOpacity>
-        <SubTitle>{subtitle}</SubTitle>
+        <TouchableOpacity {...rest}>
+          <SubTitle>{subtitle}</SubTitle>
+        </TouchableOpacity>
       </TouchableOpacity>
     </Container>
   );

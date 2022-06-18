@@ -15,6 +15,7 @@ import ChatSvg from "../assets/chat.svg";
 import ProfileSvg from "../assets/profile.svg";
 
 import { theme } from "../global/theme";
+import { HomeStackScreens } from "./stack.routes";
 
 export const TabRoutes = () => {
   return (
@@ -31,14 +32,14 @@ export const TabRoutes = () => {
           left: 24,
           borderRadius: 24,
           paddingHorizontal: 24,
-          elevation: 1,
+          elevation: 50,
         },
       }}
       // tabBar={() => <CustomTabBar/>}
     >
       <Screen
-        name="Home"
-        component={Home}
+        name="HomeStackScreens"
+        component={HomeStackScreens}
         options={{
           tabBarIcon: ({ focused }) =>
             focused ? (

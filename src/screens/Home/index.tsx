@@ -31,6 +31,7 @@ import { GroceryCard, StoreProps } from "./components/GroceryCard";
 
 import LovyGrocerySvg from "../../assets/lovy-grocery.svg";
 import { CustomTabBar } from "../../components/CustomTabBar";
+import { useNavigation } from "@react-navigation/native";
 
 const stores: StoreProps[] = [
   {
@@ -54,9 +55,18 @@ const stores: StoreProps[] = [
 ];
 
 export const Home = () => {
+  const navigation = useNavigation();
+
+  const goToPopularStore = () => {
+    navigation.navigate("PopularStore");
+  };
+  const goToPopularGrocery = () => {
+    navigation.navigate("PopularGrocery");
+  };
+
   return (
-    <Background>
-      <ScrollView showsVerticalScrollIndicator={false}>
+    <ScrollView showsVerticalScrollIndicator={false}>
+      <Background>
         <ContainerAvoidTabBar>
           <NavContainer>
             <Left>
@@ -70,7 +80,11 @@ export const Home = () => {
           </NavContainer>
           <InputMenu />
           <SpecialDealCard />
-          <PopularStuff title="Popular Store" subtitle="See all" />
+          <PopularStuff
+            title="Popular Store"
+            subtitle="See all"
+            onPress={goToPopularStore}
+          />
           <FlatListContainer>
             <FlatList
               data={stores}
@@ -87,9 +101,13 @@ export const Home = () => {
               showsHorizontalScrollIndicator={false}
             />
           </FlatListContainer>
-          <PopularStuff title="Popular Grocery" subtitle="See all" />
+          <PopularStuff
+            title="Popular Grocery"
+            subtitle="See all"
+            onPress={goToPopularGrocery}
+          />
         </ContainerAvoidTabBar>
-      </ScrollView>
-    </Background>
+      </Background>
+    </ScrollView>
   );
 };

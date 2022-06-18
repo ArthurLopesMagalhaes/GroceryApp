@@ -12,7 +12,9 @@ import { SetLocation } from "../screens/SetLocation";
 import { Congrats } from "../screens/Congrats";
 import { ForgotPassword } from "../screens/ForgotPassword";
 import { Home } from "../screens/Home";
+import { PopularStore } from "../screens/PopularStore";
 import { TabRoutes } from "./tab.routes";
+import { PopularGrocery } from "../screens/PopularGrocery";
 
 export const StackRoutes = () => {
   return (
@@ -32,6 +34,21 @@ export const StackRoutes = () => {
       <Screen name="Congrats" component={Congrats} />
       <Screen name="ForgotPassword" component={ForgotPassword} />
       <Screen name="TabRoutes" component={TabRoutes} />
+    </Navigator>
+  );
+};
+
+export const HomeStackScreens = () => {
+  return (
+    <Navigator
+      initialRouteName="Home"
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <Screen name="Home" component={Home} />
+      <Screen name="PopularStore" component={PopularStore} />
+      <Screen name="PopularGrocery" component={PopularGrocery} />
     </Navigator>
   );
 };
