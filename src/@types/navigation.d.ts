@@ -17,6 +17,7 @@ export declare global {
       PopularStore: undefined;
       PopularGrocery: undefined;
       Favorites: undefined;
+      Settings: undefined;
     }
   }
 }

@@ -17,6 +17,7 @@ import { TabRoutes } from "./tab.routes";
 import { PopularGrocery } from "../screens/PopularGrocery";
 import { Profile } from "../screens/Profile";
 import { Favorites } from "../screens/Favorite";
+import { Settings } from "../screens/Settings";
 
 export const StackRoutes = () => {
   return (
@@ -65,6 +66,7 @@ export const ProfileStackScreens = () => {
     >
       <Screen name="Profile" component={Profile} />
       <Screen name="Favorites" component={Favorites} />
+      <Screen name="Settings" component={Settings} />
     </Navigator>
   );
 };

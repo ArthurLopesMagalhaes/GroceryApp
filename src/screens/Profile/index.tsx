@@ -24,6 +24,7 @@ import { Favorite } from "../../components/Favorite";
 import CabbageImg from "../../assets/cabbage.png";
 import ProfilePicture from "../../assets/profile-picture.png";
 import { useNavigation } from "@react-navigation/native";
+import { Alert, TouchableOpacity } from "react-native";
 
 export const Profile = () => {
   const bottomSheetRef = useRef<BottomSheet>(null);
@@ -31,6 +32,10 @@ export const Profile = () => {
 
   const goToFavorites = () => {
     navigation.navigate("Favorites");
+  };
+
+  const goToSettings = () => {
+    navigation.navigate("Settings");
   };
 
   return (
@@ -51,7 +56,7 @@ export const Profile = () => {
             </InfoContainer>
             <IconsContainer>
               <Icons icon={EditSvg} />
-              <Icons icon={ConfigSvg} />
+              <Icons icon={ConfigSvg} onPress={goToSettings} />
             </IconsContainer>
           </Header>
           <Voucher />
