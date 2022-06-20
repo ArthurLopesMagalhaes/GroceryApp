@@ -19,6 +19,7 @@ import { Profile } from "../screens/Profile";
 import { Favorites } from "../screens/Favorite";
 import { Settings } from "../screens/Settings";
 import { Notification } from "../screens/Notification";
+import { FindGrocery } from "../screens/FindGrocery";
 
 export const StackRoutes = () => {
   return (
@@ -53,6 +54,7 @@ export const HomeStackScreens = () => {
       <Screen name="Home" component={Home} />
       <Screen name="PopularStore" component={PopularStore} />
       <Screen name="PopularGrocery" component={PopularGrocery} />
+      <Screen name="FindGrocery" component={FindGrocery} />
     </Navigator>
   );
 };

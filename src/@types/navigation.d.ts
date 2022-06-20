@@ -19,6 +19,7 @@ export declare global {
       Favorites: undefined;
       Settings: undefined;
       Notification: undefined;
+      FindGrocery: undefined;
     }
   }
 }
