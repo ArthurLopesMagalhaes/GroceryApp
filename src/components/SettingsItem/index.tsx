@@ -9,8 +9,9 @@ import {
 
 import ArrowRightSvg from "../../assets/arrow-right.svg";
 import { theme } from "../../global/theme";
+import { TouchableOpacityProps } from "react-native";
 
-type Props = {
+type Props = TouchableOpacityProps & {
   icon: React.FC<SvgProps>;
   label: string;
   hasArrow?: boolean;
@@ -22,19 +23,16 @@ export const SettingsItem = ({
   label,
   hasArrow = true,
   bg = theme.colors.primary100,
+  ...rest
 }: Props) => {
   return (
     <>
-      <Container>
+      <Container {...rest}>
         <IconContainer bg={bg}>
           <Icon width={16} height={16} />
         </IconContainer>
         <Label>{label}</Label>
-        {hasArrow && (
-          <ArrowButton>
-            <ArrowRightSvg />
-          </ArrowButton>
-        )}
+        {hasArrow && <ArrowRightSvg />}
       </Container>
       <LineDivider />
     </>

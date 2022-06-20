@@ -18,6 +18,7 @@ import { PopularGrocery } from "../screens/PopularGrocery";
 import { Profile } from "../screens/Profile";
 import { Favorites } from "../screens/Favorite";
 import { Settings } from "../screens/Settings";
+import { Notification } from "../screens/Notification";
 
 export const StackRoutes = () => {
   return (
@@ -67,6 +68,7 @@ export const ProfileStackScreens = () => {
       <Screen name="Profile" component={Profile} />
       <Screen name="Favorites" component={Favorites} />
       <Screen name="Settings" component={Settings} />
+      <Screen name="Notification" component={Notification} />
     </Navigator>
   );
 };
