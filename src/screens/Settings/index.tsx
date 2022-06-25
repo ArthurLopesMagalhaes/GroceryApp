@@ -39,7 +39,11 @@ export const Settings = () => {
           <SettingsItem label="My Card" icon={CreditCardSVG} />
           <SettingsItem label="Contacts" icon={ContactsSvg} />
           <SettingsItem label="Security" icon={LockSvg} />
-          <SettingsItem label="Others" icon={OtherSvg} />
+          <SettingsItem
+            label="Others"
+            icon={OtherSvg}
+            onPress={() => navigation.navigate("Others")}
+          />
           <SettingsItem
             label="Logout"
             icon={LogoutSvg}

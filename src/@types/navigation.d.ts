@@ -20,6 +20,7 @@ export declare global {
       Settings: undefined;
       Notification: undefined;
       FindGrocery: undefined;
+      Others: undefined;
     }
   }
 }

@@ -20,6 +20,7 @@ import { Favorites } from "../screens/Favorite";
 import { Settings } from "../screens/Settings";
 import { Notification } from "../screens/Notification";
 import { FindGrocery } from "../screens/FindGrocery";
+import { Others } from "../screens/Others";
 
 export const StackRoutes = () => {
   return (
@@ -41,6 +42,7 @@ export const StackRoutes = () => {
       <Screen name="Settings" component={Settings} />
       <Screen name="FindGrocery" component={FindGrocery} />
       <Screen name="Notification" component={Notification} />
+      <Screen name="Others" component={Others} />
       <Screen name="TabRoutes" component={TabRoutes} />
     </Navigator>
   );
