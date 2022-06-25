@@ -3,17 +3,6 @@ import { getBottomSpace } from "react-native-iphone-x-helper";
 import styled from "styled-components/native";
 import { theme } from "../../global/theme";
 
-export const CardsContainer = styled.View`
-  width: 100%;
-  flex-direction: row;
-  flex-wrap: wrap;
-  flex: 1;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 100px;
-  margin-top: 32px;
-`;
-
 export const Text = styled.Text`
   font-family: ${theme.fonts.semibold};
   font-size: 16px;

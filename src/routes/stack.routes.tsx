@@ -38,6 +38,9 @@ export const StackRoutes = () => {
       <Screen name="SetLocation" component={SetLocation} />
       <Screen name="Congrats" component={Congrats} />
       <Screen name="ForgotPassword" component={ForgotPassword} />
+      <Screen name="Settings" component={Settings} />
+      <Screen name="FindGrocery" component={FindGrocery} />
+      <Screen name="Notification" component={Notification} />
       <Screen name="TabRoutes" component={TabRoutes} />
     </Navigator>
   );
@@ -54,7 +57,6 @@ export const HomeStackScreens = () => {
       <Screen name="Home" component={Home} />
       <Screen name="PopularStore" component={PopularStore} />
       <Screen name="PopularGrocery" component={PopularGrocery} />
-      <Screen name="FindGrocery" component={FindGrocery} />
     </Navigator>
   );
 };
@@ -69,8 +71,6 @@ export const ProfileStackScreens = () => {
     >
       <Screen name="Profile" component={Profile} />
       <Screen name="Favorites" component={Favorites} />
-      <Screen name="Settings" component={Settings} />
-      <Screen name="Notification" component={Notification} />
     </Navigator>
   );
 };

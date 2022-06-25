@@ -9,7 +9,6 @@ export const Container = styled.View`
   justify-content: space-between;
   align-items: center;
   padding: 0 36px;
-  background-color: yellow;
 `;
 
 export const IconContainer = styled.TouchableOpacity`

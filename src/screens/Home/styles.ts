@@ -6,6 +6,7 @@ export const NavContainer = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 32px;
 `;
 
 export const Left = styled.View`
@@ -36,9 +37,7 @@ export const FlatListContainer = styled.View`
   margin-bottom: 32px;
 `;
 
-export const ContainerAvoidTabBar = styled.SafeAreaView`
-  flex: 1;
-  width: 100%;
-  padding: 24px;
-  padding-bottom: 115px;
+export const ScrollView = styled.ScrollView`
+  margin-top: 32px;
+  margin-bottom: 110px;
 `;

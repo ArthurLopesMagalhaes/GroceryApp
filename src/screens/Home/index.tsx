@@ -1,16 +1,9 @@
-import {
-  KeyboardAvoidingView,
-  Platform,
-  ScrollView,
-  StatusBar,
-  FlatList,
-  View,
-} from "react-native";
+import { FlatList } from "react-native";
 
 import { Container } from "../../components/Container";
 import { Background } from "../../components/Background";
 import {
-  ContainerAvoidTabBar,
+  ScrollView,
   FlatListContainer,
   Greeting,
   IconsContainer,
@@ -65,20 +58,20 @@ export const Home = () => {
   };
 
   return (
-    <ScrollView showsVerticalScrollIndicator={false}>
-      <Background>
-        <ContainerAvoidTabBar>
-          <NavContainer>
-            <Left>
-              <Logo source={LogoImg} />
-              <Greeting>Hello, Daniel!</Greeting>
-            </Left>
-            <IconsContainer>
-              <MiniIcon icon={BellSvg} />
-              <MiniIcon icon={HeartSvg} />
-            </IconsContainer>
-          </NavContainer>
-          <InputMenu />
+    <Background>
+      <Container>
+        <NavContainer>
+          <Left>
+            <Logo source={LogoImg} />
+            <Greeting>Hello, Daniel!</Greeting>
+          </Left>
+          <IconsContainer>
+            <MiniIcon icon={BellSvg} />
+            <MiniIcon icon={HeartSvg} />
+          </IconsContainer>
+        </NavContainer>
+        <InputMenu />
+        <ScrollView showsVerticalScrollIndicator={false}>
           <SpecialDealCard />
           <PopularStuff
             title="Popular Store"
@@ -106,8 +99,22 @@ export const Home = () => {
             subtitle="See all"
             onPress={goToPopularGrocery}
           />
-        </ContainerAvoidTabBar>
-      </Background>
-    </ScrollView>
+          <FlatList
+            data={stores}
+            renderItem={({ item }) => (
+              <GroceryCard
+                id={item.id}
+                icon={item.icon}
+                name={item.name}
+                time={item.time}
+              />
+            )}
+            keyExtractor={(item) => item.id}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+          />
+        </ScrollView>
+      </Container>
+    </Background>
   );
 };

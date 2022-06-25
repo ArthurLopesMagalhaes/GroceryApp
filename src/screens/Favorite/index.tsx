@@ -22,6 +22,7 @@ import { useRef } from "react";
 
 import EmptyHeartSvg from "../../assets/empty-heart.svg";
 import { useNavigation } from "@react-navigation/native";
+import { Modal } from "../../components/Modal";
 
 const stores = [
   {
@@ -77,13 +78,8 @@ const stores = [
 
 export const Favorites = () => {
   const bottomSheetRef = useRef<BottomSheet>(null);
-  const navigation = useNavigation();
-
   const OpenModal = () => {
     bottomSheetRef.current?.expand();
-    navigation.setOptions({
-      tabBarStyle: { display: "none" },
-    });
   };
 
   return (
@@ -109,27 +105,13 @@ export const Favorites = () => {
           />
         </CardsContainer>
       </Container>
-      <BottomSheet
-        enablePanDownToClose
+      <Modal
+        title="Are you sure want to logout?"
+        cancelText="Cancel"
+        doItText="Yes, logout"
+        icon={EmptyHeartSvg}
         ref={bottomSheetRef}
-        snapPoints={[1, 380]}
-        backgroundStyle={styles.modal}
-        handleIndicatorStyle={styles.indicator}
-        backdropComponent={BottomSheetBackdrop}
-      >
-        <BottomSheetContent>
-          <EmptyHeartSvg />
-          <Text>Remove from favorite?</Text>
-          <Buttons>
-            <Cancel>
-              <LabelCancel>Cancel</LabelCancel>
-            </Cancel>
-            <Yes>
-              <LabelYes>Yes, remove</LabelYes>
-            </Yes>
-          </Buttons>
-        </BottomSheetContent>
-      </BottomSheet>
+      />
     </Background>
   );
 };

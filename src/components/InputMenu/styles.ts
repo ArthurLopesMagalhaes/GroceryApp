@@ -6,7 +6,7 @@ export const Container = styled.View`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-top: 32px;
+  margin-top: 0px;
 `;
 export const InputContainer = styled.View`
   flex-direction: row;

@@ -14,9 +14,16 @@ import LogoutSvg from "../../assets/logout.svg";
 import { Background } from "../../components/Background";
 import { theme } from "../../global/theme";
 import { useNavigation } from "@react-navigation/native";
+import { Modal } from "../../components/Modal";
+import { useRef } from "react";
+import BottomSheet, { BottomSheetBackdrop } from "@gorhom/bottom-sheet";
 
 export const Settings = () => {
   const navigation = useNavigation();
+  const bottomSheetRef = useRef<BottomSheet>(null);
+  const logoutModal = () => {
+    bottomSheetRef.current?.expand();
+  };
 
   return (
     <Background>
@@ -38,9 +45,17 @@ export const Settings = () => {
             icon={LogoutSvg}
             bg={theme.colors.tertiary_2_100}
             hasArrow={false}
+            onPress={logoutModal}
           />
         </ScrollView>
       </Container>
+      <Modal
+        title="Are you sure want to logout?"
+        cancelText="Cancel"
+        doItText="Yes, logout"
+        icon={LogoutSvg}
+        ref={bottomSheetRef}
+      />
     </Background>
   );
 };

@@ -20,7 +20,6 @@ export const styles = StyleSheet.create({
     width: "100%",
     height: 180,
     borderRadius: 24,
-    marginTop: 24,
     paddingLeft: 18,
     marginBottom: 32,
   },

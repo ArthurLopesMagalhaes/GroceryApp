@@ -7,6 +7,7 @@ export const Container = styled.View`
   justify-content: flex-start;
   align-items: center;
   margin-top: 29px;
+  margin-bottom: 32px;
 `;
 export const ArrowContainer = styled.TouchableOpacity`
   justify-content: center;
