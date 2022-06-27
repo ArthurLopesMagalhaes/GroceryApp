@@ -21,6 +21,7 @@ import { Settings } from "../screens/Settings";
 import { Notification } from "../screens/Notification";
 import { FindGrocery } from "../screens/FindGrocery";
 import { Others } from "../screens/Others";
+import { OrderDetails } from "../screens/OrderDetails";
 
 export const StackRoutes = () => {
   return (
@@ -39,6 +40,7 @@ export const StackRoutes = () => {
       <Screen name="SetLocation" component={SetLocation} />
       <Screen name="Congrats" component={Congrats} />
       <Screen name="ForgotPassword" component={ForgotPassword} />
+      <Screen name="OrderDetails" component={OrderDetails} />
       <Screen name="Settings" component={Settings} />
       <Screen name="FindGrocery" component={FindGrocery} />
       <Screen name="Notification" component={Notification} />
@@ -59,6 +61,19 @@ export const HomeStackScreens = () => {
       <Screen name="Home" component={Home} />
       <Screen name="PopularStore" component={PopularStore} />
       <Screen name="PopularGrocery" component={PopularGrocery} />
+    </Navigator>
+  );
+};
+
+export const OrderStackScreen = () => {
+  return (
+    <Navigator
+      initialRouteName="OrderDetails"
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <Screen name="OrderDetails" component={OrderDetails} />
     </Navigator>
   );
 };

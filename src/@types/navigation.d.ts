@@ -10,7 +10,7 @@ export declare global {
       Congrats: undefined;
       ForgotPassword: undefined;
       Home: undefined;
-      Order: undefined;
+      OrderDetails: undefined;
       Chat: undefined;
       Profile: undefined;
       TabRoutes: undefined;

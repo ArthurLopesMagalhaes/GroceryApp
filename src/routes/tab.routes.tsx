@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 const { Navigator, Screen } = createBottomTabNavigator();
 
 import { Home } from "../screens/Home";
-import { Order } from "../screens/Order";
+import { OrderDetails } from "../screens/OrderDetails";
 import { Chat } from "../screens/Chat";
 
 import { CustomTabBar } from "../components/CustomTabBar";
@@ -15,7 +15,11 @@ import ChatSvg from "../assets/chat.svg";
 import ProfileSvg from "../assets/profile.svg";
 
 import { theme } from "../global/theme";
-import { HomeStackScreens, ProfileStackScreens } from "./stack.routes";
+import {
+  HomeStackScreens,
+  OrderStackScreen,
+  ProfileStackScreens,
+} from "./stack.routes";
 
 export const TabRoutes = () => {
   return (
@@ -53,8 +57,8 @@ export const TabRoutes = () => {
         }}
       />
       <Screen
-        name="Order"
-        component={Order}
+        name="OrderStackScreen"
+        component={OrderStackScreen}
         options={{
           tabBarIcon: ({ focused }) =>
             focused ? (

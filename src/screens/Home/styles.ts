@@ -7,6 +7,7 @@ export const NavContainer = styled.View`
   align-items: center;
   justify-content: space-between;
   margin-bottom: 32px;
+  margin-top: 24px;
 `;
 
 export const Left = styled.View`

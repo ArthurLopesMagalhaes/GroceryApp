@@ -37,6 +37,7 @@ function App() {
         animated={true}
         backgroundColor="transparent"
         barStyle="dark-content"
+        translucent
       />
       <MainRoutes />
     </>
