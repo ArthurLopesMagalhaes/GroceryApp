@@ -74,29 +74,32 @@ export const Home = () => {
           </IconsContainer>
         </NavContainer>
         <InputMenu />
-        <ScrollView showsVerticalScrollIndicator={false}>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{ paddingBottom: 100 }}
+        >
           <SpecialDealCard />
           <PopularStuff
             title="Popular Store"
             subtitle="See all"
             onPress={goToPopularStore}
           />
-          <FlatListContainer>
-            <FlatList
-              data={stores}
-              renderItem={({ item }) => (
-                <GroceryCard
-                  id={item.id}
-                  icon={item.icon}
-                  name={item.name}
-                  time={item.time}
-                />
-              )}
-              keyExtractor={(item) => item.id}
-              horizontal
-              showsHorizontalScrollIndicator={false}
-            />
-          </FlatListContainer>
+
+          <FlatList
+            data={stores}
+            renderItem={({ item }) => (
+              <GroceryCard
+                id={item.id}
+                icon={item.icon}
+                name={item.name}
+                time={item.time}
+              />
+            )}
+            keyExtractor={(item) => item.id}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+          />
+
           <PopularStuff
             title="Popular Grocery"
             subtitle="See all"

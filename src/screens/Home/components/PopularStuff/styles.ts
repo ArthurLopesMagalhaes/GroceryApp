@@ -7,6 +7,7 @@ export const Container = styled.View`
   align-items: center;
   justify-content: space-between;
   margin-bottom: 32px;
+  margin-top: 32px;
 `;
 
 export const Title = styled.Text`

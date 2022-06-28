@@ -21,7 +21,6 @@ export const styles = StyleSheet.create({
     height: 180,
     borderRadius: 24,
     paddingLeft: 18,
-    marginBottom: 32,
   },
 });
 

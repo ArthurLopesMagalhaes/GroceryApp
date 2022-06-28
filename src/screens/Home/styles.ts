@@ -33,12 +33,6 @@ export const Greeting = styled.Text`
   margin-left: 24px;
 `;
 
-export const FlatListContainer = styled.View`
-  height: 206px;
-  margin-bottom: 32px;
-`;
-
 export const ScrollView = styled.ScrollView`
   margin-top: 32px;
-  margin-bottom: 110px;
 `;
