@@ -22,6 +22,7 @@ import { Notification } from "../screens/Notification";
 import { FindGrocery } from "../screens/FindGrocery";
 import { Others } from "../screens/Others";
 import { OrderDetails } from "../screens/OrderDetails";
+import { OrderHistory } from "../screens/OrderHistory";
 
 export const StackRoutes = () => {
   return (
@@ -46,6 +47,7 @@ export const StackRoutes = () => {
       <Screen name="Notification" component={Notification} />
       <Screen name="Others" component={Others} />
       <Screen name="TabRoutes" component={TabRoutes} />
+      <Screen name="Favorites" component={Favorites} />
     </Navigator>
   );
 };
@@ -68,11 +70,12 @@ export const HomeStackScreens = () => {
 export const OrderStackScreen = () => {
   return (
     <Navigator
-      initialRouteName="OrderDetails"
+      initialRouteName="OrderHistory"
       screenOptions={{
         headerShown: false,
       }}
     >
+      <Screen name="OrderHistory" component={OrderHistory} />
       <Screen name="OrderDetails" component={OrderDetails} />
     </Navigator>
   );

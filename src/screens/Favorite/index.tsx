@@ -77,6 +77,8 @@ const stores = [
 ];
 
 export const Favorites = () => {
+  const navigation = useNavigation();
+
   const bottomSheetRef = useRef<BottomSheet>(null);
   const OpenModal = () => {
     bottomSheetRef.current?.expand();
@@ -85,7 +87,7 @@ export const Favorites = () => {
   return (
     <Background>
       <Container>
-        <Header label="Favorites" />
+        <Header label="Favorites" onPress={() => navigation.goBack()} />
         <InputMenu />
 
         <CardsContainer>

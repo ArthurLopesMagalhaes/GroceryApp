@@ -50,6 +50,9 @@ const stores: StoreProps[] = [
 export const Home = () => {
   const navigation = useNavigation();
 
+  const goToFavorites = () => {
+    navigation.navigate("Favorites");
+  };
   const goToPopularStore = () => {
     navigation.navigate("PopularStore");
   };
@@ -67,7 +70,7 @@ export const Home = () => {
           </Left>
           <IconsContainer>
             <MiniIcon icon={BellSvg} />
-            <MiniIcon icon={HeartSvg} />
+            <MiniIcon icon={HeartSvg} onPress={goToFavorites} />
           </IconsContainer>
         </NavContainer>
         <InputMenu />

@@ -20,19 +20,17 @@ import PlusSvg from "../../../../assets/plus.svg";
 import AlfaceImg from "../../../../assets/alface.png";
 import Swipeable from "react-native-gesture-handler/Swipeable";
 import Animated from "react-native-reanimated";
-import { View } from "react-native";
+import { TouchableOpacityProps, View } from "react-native";
 import { RectButton } from "react-native-gesture-handler";
 
 import TrashSvg from "../../../../assets/trash.svg";
 
-const renderRightActions = (progress: any, dragX: any) => {
-  const trans = dragX.interpolate({
-    inputRange: [0, 50, 100, 101],
-    outputRange: [-20, 0, 0, 1],
-  });
+type Props = TouchableOpacityProps & {};
+
+const renderRightActions = ({ ...rest }: Props) => {
   return (
     <ViewTrash>
-      <TrashButton>
+      <TrashButton {...rest}>
         <TrashSvg width={16} height={16} />
       </TrashButton>
     </ViewTrash>

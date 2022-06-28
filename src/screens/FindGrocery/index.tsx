@@ -12,10 +12,16 @@ import { Button } from "../../components/Button";
 export const FindGrocery = () => {
   const navigation = useNavigation();
 
+  const goToHome = () => {
+    navigation.reset({
+      routes: [{ name: "TabRoutes" }],
+    });
+  };
+
   return (
     <Background>
       <Container>
-        <Header label="Find your Grocery" />
+        <Header label="Find your Grocery" onPress={goToHome} />
         <InputMenu />
         <ScrollView showsVerticalScrollIndicator={false}>
           <Title>Type</Title>

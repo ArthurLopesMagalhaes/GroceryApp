@@ -51,56 +51,17 @@ export const Price = styled.Text`
   color: ${theme.colors.primary};
 `;
 
-export const AmountContainer = styled.View`
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-export const MinusButton = styled.TouchableOpacity`
-  width: 28px;
-  height: 28px;
-  border-radius: 9px;
-  background-color: ${theme.colors.primary100};
+export const OrderStatus = styled.View`
+  height: 25px;
+  border-radius: 15px;
+  background-color: red;
+  padding: 2px 19px;
   justify-content: center;
   align-items: center;
 `;
 
-export const PlusButton = styled.TouchableOpacity`
-  width: 28px;
-  height: 28px;
-  border-radius: 9px;
-  background-color: ${theme.colors.primary800};
-  justify-content: center;
-  align-items: center;
+export const StatusText = styled.Text`
+  font-family: ${theme.fonts.regular};
+  font-size: 14px;
+  color: ${theme.colors.white};
 `;
-
-export const AmountNumber = styled.Text`
-  font-family: ${theme.fonts.semibold};
-  font-size: 16px;
-  color: ${theme.colors.black};
-  margin: 0 12px;
-`;
-
-export const ViewTrash = styled.View`
-  width: 50px;
-  height: 99px;
-  background-color: ${theme.colors.primary100};
-  border-top-right-radius: 16px;
-  border-bottom-right-radius: 16px;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const TrashButton = styled.TouchableOpacity`
-  width: 28px;
-  height: 28px;
-  border-radius: 9px;
-  justify-content: center;
-  align-items: center;
-  background-color: ${theme.colors.primary200};
-`;
-
-export const styles = StyleSheet.create({
-  actionText: {},
-});
