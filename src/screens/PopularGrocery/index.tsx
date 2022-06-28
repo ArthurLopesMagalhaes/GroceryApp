@@ -72,31 +72,25 @@ const stores = [
 export const PopularGrocery = () => {
   const navigation = useNavigation();
 
-  const goToPaymentMethod = () => {
-    navigation.navigate("PaymentMethod");
-  };
-
   return (
     <Background>
       <Container>
         <Header label="Popular Grocery" onPress={() => navigation.goBack()} />
         <InputMenu />
-
-        <CardsContainer>
-          <FlatList
-            showsVerticalScrollIndicator={false}
-            data={stores}
-            keyExtractor={(item) => item.id}
-            renderItem={({ item }) => (
-              <GroceryCard
-                image={item.image}
-                product={item.product}
-                store={item.store}
-                price={item.price}
-              />
-            )}
-          />
-        </CardsContainer>
+        <FlatList
+          contentContainerStyle={{ paddingTop: 10, paddingBottom: 90 }}
+          showsVerticalScrollIndicator={false}
+          data={stores}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => (
+            <GroceryCard
+              image={item.image}
+              product={item.product}
+              store={item.store}
+              price={item.price}
+            />
+          )}
+        />
       </Container>
     </Background>
   );

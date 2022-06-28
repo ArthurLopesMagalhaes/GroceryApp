@@ -28,7 +28,7 @@ export const Settings = () => {
   return (
     <Background>
       <Container>
-        <Header label="Settings" />
+        <Header label="Settings" onPress={() => navigation.goBack()} />
         <ScrollView showsVerticalScrollIndicator={false}>
           <SettingsItem label="Account" icon={ProfileSvg} />
           <SettingsItem
