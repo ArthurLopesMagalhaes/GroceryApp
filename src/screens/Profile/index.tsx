@@ -1,7 +1,7 @@
 import BottomSheet from "@gorhom/bottom-sheet";
 import { useRef } from "react";
 import { MemberType } from "./components/MemberType/index";
-import { Icons } from "./components/Icons/index";
+import { Icons } from "../../components/Icons";
 
 import {
   Container,

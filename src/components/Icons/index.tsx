@@ -9,7 +9,7 @@ type Props = TouchableOpacityProps & {
 export const Icons = ({ icon: Icon, ...rest }: Props) => {
   return (
     <Container {...rest}>
-      <Icon />
+      <Icon width={17} height={17} />
     </Container>
   );
 };

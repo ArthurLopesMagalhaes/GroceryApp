@@ -19,6 +19,7 @@ import { SetLocation } from "./src/screens/SetLocation";
 import { SignIn } from "./src/screens/SignIn";
 import { SignUp } from "./src/screens/SignUp";
 import { SplashScreen } from "./src/screens/SplashScreen";
+import { StoreHome } from "./src/screens/StoreHome";
 import { UploadPhoto } from "./src/screens/UploadPhoto";
 
 function App() {
@@ -39,7 +40,8 @@ function App() {
         barStyle="dark-content"
         translucent
       />
-      <MainRoutes />
+      <StoreHome />
+      {/* <MainRoutes /> */}
     </>
   );
 }

@@ -70,6 +70,13 @@ export const theme = {
     accent_6_opacity: "#E1604D26",
     background: "#2218741A",
 
+    succcess: "#23A757",
+    success_bg: "#EDF9F0",
+    warnning: "#B95000",
+    warning_bg: "#FFF4EC",
+    error: "#DA1414",
+    error_bg: "##FEEFEF",
+
     smoother_1: "#FFFBFB",
     smoother_2: "#F6F9FF",
     smoother_3: "#F6F8FB",
