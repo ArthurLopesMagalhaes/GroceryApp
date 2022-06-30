@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import { theme } from "../../../../global/theme";
+import { theme } from "../../global/theme";
 
 export const Container = styled.View`
   flex-direction: row;
@@ -8,7 +8,8 @@ export const Container = styled.View`
   padding-right: 32px;
   justify-content: space-between;
   align-items: flex-start;
-  elevation: 3;
+  elevation: 1;
+  margin-bottom: 24px;
 `;
 
 export const Image = styled.Image`
@@ -34,7 +35,7 @@ export const Date = styled.Text`
   color: ${theme.colors.neutral_5};
   margin-top: 4px;
 `;
-export const Testimonial = styled.Text`
+export const Text = styled.Text`
   font-family: ${theme.fonts.regular};
   font-size: 14px;
   color: ${theme.colors.black};

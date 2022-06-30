@@ -10,7 +10,6 @@ import {
   GroceryName,
   GroceryDescription,
   DistanceRatingContainer,
-  FlatList,
 } from "./styles";
 import BottomSheet, { BottomSheetFlatList } from "@gorhom/bottom-sheet";
 
@@ -26,7 +25,7 @@ import EmptyHeart from "../../assets/empty-heart.svg";
 import HalfStartSvg from "../../assets/half-star.svg";
 import { PopularStuff } from "../Home/components/PopularStuff";
 import { ProductCard } from "./components/ProductCard";
-import { TestimonialCard } from "./components/TestimonialCard";
+import { TestimonialCard } from "../../components/TestimonialCard";
 
 const data = [
   {

@@ -20,6 +20,7 @@ import { SignIn } from "./src/screens/SignIn";
 import { SignUp } from "./src/screens/SignUp";
 import { SplashScreen } from "./src/screens/SplashScreen";
 import { StoreHome } from "./src/screens/StoreHome";
+import { Testimonials } from "./src/screens/Testimonials";
 import { UploadPhoto } from "./src/screens/UploadPhoto";
 
 function App() {
@@ -40,7 +41,7 @@ function App() {
         barStyle="dark-content"
         translucent
       />
-      <StoreHome />
+      <Testimonials />
       {/* <MainRoutes /> */}
     </>
   );

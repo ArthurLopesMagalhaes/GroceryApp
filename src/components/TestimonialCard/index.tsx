@@ -6,11 +6,11 @@ import {
   Name,
   Number,
   StarsContainer,
-  Testimonial,
+  Text,
 } from "./styles";
 
-import ProfileSvg from "../../../../assets/profile.png";
-import StarSvg from "../../../../assets/star.svg";
+import ProfileSvg from "../../assets/profile.png";
+import StarSvg from "../../assets/star.svg";
 
 export const TestimonialCard = () => {
   return (
@@ -19,12 +19,12 @@ export const TestimonialCard = () => {
       <InfoContainer>
         <Name>Jenny Wilson</Name>
         <Date>December 20, 2021</Date>
-        <Testimonial>
+        <Text>
           The grocery is very delicious and the service is satisfying! Love it!
-        </Testimonial>
+        </Text>
       </InfoContainer>
       <StarsContainer>
-        <StarSvg />
+        <StarSvg width={16} />
         <Number>5</Number>
       </StarsContainer>
     </Container>

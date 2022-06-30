@@ -58,8 +58,6 @@ export const GroceryDescription = styled.Text`
   margin-top: 12px;
 `;
 
-export const FlatList = styled.FlatList``;
-
 export const styles = StyleSheet.create({
   modal: {
     backgroundColor: theme.colors.white,
