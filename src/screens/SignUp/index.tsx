@@ -16,12 +16,16 @@ import { Link } from "../../components/Link";
 import { SocialLoginButton } from "../../components/SocialLoginButton";
 import FacebookSvg from "../../assets/facebook.svg";
 import GoogleSvg from "../../assets/google.svg";
-import EyeSvg from "../../assets/eye.svg";
+import EyeClosedSvg from "../../assets/closed-eye.svg";
+import EyeOpenedSvg from "../../assets/opened-eye.svg";
 import { KeyboardAvoidingView, Platform, ScrollView, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Container } from "../../components/Container";
+import { useState } from "react";
 
 export const SignUp = () => {
+  const [hidePassword, setHidePassword] = useState(true);
+
   const navigation = useNavigation();
 
   const doSignUp = () => {
@@ -32,6 +36,10 @@ export const SignUp = () => {
     navigation.reset({
       routes: [{ name: "SignIn" }],
     });
+  };
+
+  const showPass = () => {
+    setHidePassword((prevState) => !prevState);
   };
 
   return (
@@ -52,8 +60,9 @@ export const SignUp = () => {
               <Input
                 label="Password*"
                 placeholder="Password"
-                icon={EyeSvg}
-                secureTextEntry
+                icon={hidePassword ? EyeClosedSvg : EyeOpenedSvg}
+                onPress={showPass}
+                secureTextEntry={hidePassword}
               />
               <RememberMe />
               <Button label="Sign up" onPress={doSignUp} />

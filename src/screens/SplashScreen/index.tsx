@@ -9,7 +9,6 @@ export const SplashScreen = () => {
 
   const handleNextButton = () => {
     navigation.navigate("SignUp");
-    console.log("clicou");
   };
 
   return (

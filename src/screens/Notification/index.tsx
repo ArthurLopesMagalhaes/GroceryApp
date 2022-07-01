@@ -6,12 +6,15 @@ import { ScrollView } from "./styles";
 import { Background } from "../../components/Background";
 import { Heading } from "../../components/Heading";
 import { NotificationItem } from "./components";
+import { useNavigation } from "@react-navigation/native";
 
 export const Notification = () => {
+  const navigation = useNavigation();
+
   return (
     <Background>
       <Container>
-        <Header label="Notification" />
+        <Header label="Notification" onPress={() => navigation.goBack()} />
         <Heading text="Notify me when" />
         <ScrollView showsVerticalScrollIndicator={false}>
           <NotificationItem text="Buy something" />

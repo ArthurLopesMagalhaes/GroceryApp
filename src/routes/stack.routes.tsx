@@ -27,7 +27,7 @@ import { OrderHistory } from "../screens/OrderHistory";
 export const StackRoutes = () => {
   return (
     <Navigator
-      initialRouteName="TabRoutes"
+      initialRouteName="Splash"
       screenOptions={{
         headerShown: false,
       }}

@@ -18,7 +18,8 @@ import { Link } from "../../components/Link";
 import { SocialLoginButton } from "../../components/SocialLoginButton";
 import FacebookSvg from "../../assets/facebook.svg";
 import GoogleSvg from "../../assets/google.svg";
-import EyeSvg from "../../assets/eye.svg";
+import EyeClosedSvg from "../../assets/closed-eye.svg";
+import EyeOpenedSvg from "../../assets/opened-eye.svg";
 import {
   Alert,
   KeyboardAvoidingView,
@@ -60,7 +61,7 @@ export const SignIn = () => {
               <Input
                 label="Password*"
                 placeholder="Password"
-                icon={EyeSvg}
+                icon={EyeClosedSvg}
                 secureTextEntry
               />
               <RememberMe />

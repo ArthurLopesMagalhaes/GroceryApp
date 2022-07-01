@@ -55,7 +55,7 @@ export const UploadPhoto = () => {
               <CircleIcon>
                 <FolderSvg />
               </CircleIcon>
-              <Legend>Take a Photo</Legend>
+              <Legend>From gallery</Legend>
             </CardButton>
           </CardsContainer>
           <Button label="Next" onPress={goToSetLocation} />

@@ -6,12 +6,15 @@ import { ScrollView } from "./styles";
 
 import LanguageSvg from "../../assets/language.svg";
 import PaymentSvg from "../../assets/payment.svg";
+import { useNavigation } from "@react-navigation/native";
 
 export const Others = () => {
+  const navigation = useNavigation();
+
   return (
     <Background>
       <Container>
-        <Header label="Others" />
+        <Header label="Others" onPress={() => navigation.goBack()} />
         <ScrollView showsVerticalScrollIndicator={false}>
           <OthersItem label="Language" icon={LanguageSvg} text={"English"} />
           <OthersItem label="Fast Payment" icon={PaymentSvg} />
