@@ -22,11 +22,19 @@ import { CircleIcon } from "../../components/CircleIcon";
 import { useNavigation } from "@react-navigation/native";
 import { Container } from "../../components/Container";
 
+import { launchCamera, launchImageLibrary } from "react-native-image-picker";
+
 export const UploadPhoto = () => {
   const navigation = useNavigation();
 
   const goToSetLocation = () => {
     navigation.navigate("SetLocation");
+  };
+
+  const openImageGallery = async () => {
+    const result = await launchImageLibrary({
+      mediaType: "photo",
+    });
   };
 
   return (
@@ -51,7 +59,7 @@ export const UploadPhoto = () => {
               </CircleIcon>
               <Legend>Take a Photo</Legend>
             </CardButton>
-            <CardButton height={160}>
+            <CardButton height={160} onPress={openImageGallery}>
               <CircleIcon>
                 <FolderSvg />
               </CircleIcon>

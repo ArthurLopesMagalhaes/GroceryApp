@@ -5,8 +5,13 @@ import { Circle, Container, Legend } from "./styles";
 type Props = {
   height: number;
   children: ReactNode;
+  onPress?: () => void;
 };
 
-export const CardButton = ({ height, children }: Props) => {
-  return <Container height={height}>{children}</Container>;
+export const CardButton = ({ height, children, onPress }: Props) => {
+  return (
+    <Container height={height} onPress={onPress}>
+      {children}
+    </Container>
+  );
 };
