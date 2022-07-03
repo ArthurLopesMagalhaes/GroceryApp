@@ -38,6 +38,12 @@ export const ProfilePhotoContainer = styled.View`
   background-color: ${theme.colors.secondary200};
   margin-top: 24px;
   position: relative;
+  overflow: hidden;
+`;
+
+export const Image = styled.Image`
+  width: 100%;
+  height: 100%;
 `;
 
 export const EditButton = styled.TouchableHighlight`
@@ -46,8 +52,8 @@ export const EditButton = styled.TouchableHighlight`
   border-radius: 25px;
   background-color: ${theme.colors.primary};
   position: absolute;
-  right: 10px;
-  bottom: 2px;
+  right: 80px;
+  top: 220px;
   justify-content: center;
   align-items: center;
 `;
