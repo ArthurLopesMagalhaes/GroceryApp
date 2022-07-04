@@ -1,3 +1,4 @@
+import { LinearGradient } from "expo-linear-gradient";
 import styled from "styled-components/native";
 import { theme } from "../../global/theme";
 
@@ -25,4 +26,12 @@ export const Phrase = styled.Text`
   color: ${theme.colors.white};
   text-align: center;
   margin-bottom: 40px;
+`;
+
+export const BackgroundGradient = styled(LinearGradient).attrs({
+  colors: ["#09101D00", "#09101DFF"],
+})`
+  width: 100%;
+  height: 70%;
+  justify-content: flex-end;
 `;

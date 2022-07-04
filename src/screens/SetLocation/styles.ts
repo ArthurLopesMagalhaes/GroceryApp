@@ -50,6 +50,7 @@ export const MapContainer = styled.View`
   flex: 1;
   border-radius: 20px;
   border: 1px solid ${theme.colors.primary};
+  overflow: hidden;
 `;
 export const AddressCard = styled.View`
   width: 100%;

@@ -1,20 +1,27 @@
-import { KeyboardAvoidingView, Platform, ScrollView, View } from "react-native";
+import { useState } from "react";
+
+import { useNavigation } from "@react-navigation/native";
+
 import { Background } from "../../components/Background";
 import { Button } from "../../components/Button";
 import { Header } from "../../components/Header";
+import { CardButton } from "../../components/CardButton";
+import { Container } from "../../components/Container";
 
 import { CardsContainer, Content, Heading } from "./styles";
 
-import { PaymentMethodItem } from "../../components/PaymentMethodItem";
 import PaypalSvg from "../../assets/paypal.svg";
 import VisaSvg from "../../assets/visa.svg";
 import PayoneerSvg from "../../assets/payoneer.svg";
-import { CardButton } from "../../components/CardButton";
-import { useNavigation } from "@react-navigation/native";
-import { Container } from "../../components/Container";
 
 export const PaymentMethod = () => {
+  const [paymentSelected, setPaymentSelected] = useState("");
+
   const navigation = useNavigation();
+
+  const handlePaymentMethod = (method: string) => {
+    setPaymentSelected(method);
+  };
 
   const goToUploadPhoto = () => {
     navigation.navigate("UploadPhoto");
@@ -29,13 +36,25 @@ export const PaymentMethod = () => {
         </Heading>
         <Content>
           <CardsContainer>
-            <CardButton height={80}>
+            <CardButton
+              height={80}
+              selected={paymentSelected === "paypal"}
+              onPress={() => handlePaymentMethod("paypal")}
+            >
               <PaypalSvg />
             </CardButton>
-            <CardButton height={80}>
+            <CardButton
+              height={80}
+              selected={paymentSelected === "visa"}
+              onPress={() => handlePaymentMethod("visa")}
+            >
               <VisaSvg />
             </CardButton>
-            <CardButton height={80}>
+            <CardButton
+              height={80}
+              selected={paymentSelected === "payoneer"}
+              onPress={() => handlePaymentMethod("payoneer")}
+            >
               <PayoneerSvg />
             </CardButton>
           </CardsContainer>

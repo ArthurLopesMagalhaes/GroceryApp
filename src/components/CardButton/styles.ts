@@ -3,6 +3,7 @@ import { theme } from "../../global/theme";
 
 type ContainerProps = {
   height: number;
+  selected: boolean;
 };
 
 export const Container = styled.TouchableOpacity<ContainerProps>`
@@ -10,7 +11,10 @@ export const Container = styled.TouchableOpacity<ContainerProps>`
   height: ${(props) => props.height}px;
   padding: 24px;
   border-radius: 20px;
-  border: 1px solid ${theme.colors.neutral_8};
+  border: ${(props) =>
+    props.selected
+      ? `2px solid ${theme.colors.primary}`
+      : `2px solid ${theme.colors.neutral_8}`};
   margin-bottom: 24px;
   justify-content: center;
   align-items: center;
