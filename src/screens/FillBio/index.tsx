@@ -34,10 +34,21 @@ import { InputSelect } from "../../components/InputSelect";
 
 import { genders } from "../../utils/genders";
 import { theme } from "../../global/theme";
+import { useForm } from "react-hook-form";
+
+type FormData = {
+  fullname: string;
+  nickname: string;
+  phone_number: string;
+  gender: string;
+  birth_date: Date;
+  address: string;
+};
 
 export const FillBio = () => {
-  const [fullName, setFullName] = useState("");
-  const [nickname, setNickName] = useState("");
+  const { control, handleSubmit } = useForm<FormData>();
+  // const [fullName, setFullName] = useState("");
+  // const [nickname, setNickName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [gender, setGender] = useState("");
 
@@ -78,8 +89,10 @@ export const FillBio = () => {
     setFormatedDate(fDate);
   };
 
-  const goToPaymentMethod = () => {
-    navigation.navigate("PaymentMethod");
+  const goToPaymentMethod = (data: FormData) => {
+    console.log(data);
+    console.log(date);
+    // navigation.navigate("PaymentMethod");
   };
 
   return (
@@ -95,23 +108,30 @@ export const FillBio = () => {
             </Heading>
             <Form>
               <Input
+                name="fullname"
+                control={control}
+                rules={{ required: "Type your full name" }}
                 label="Full Name*"
                 placeholder="Your fullname"
                 icon={() => <View />}
               />
               <Input
+                name="nickname"
+                control={control}
+                rules={{ required: "Type your nickname" }}
                 label="Nick Name*"
                 placeholder="Your nickname"
                 icon={() => <View />}
               />
               <Input
+                name="phone_number"
+                control={control}
+                rules={{ required: "Type your phone number" }}
                 label="Phone Number*"
                 placeholder="Your phone number"
                 icon={() => <View />}
                 keyboardType="numeric"
                 maxLength={15}
-                onChangeText={(txt) => setPhoneNumber(phoneMask(txt))}
-                value={phoneNumber}
               />
               <InputSelect
                 label="Gender*"
@@ -120,6 +140,9 @@ export const FillBio = () => {
                 value={gender}
               />
               <Input
+                name="birth_date"
+                control={control}
+                rules={{ required: "Choose your date of birth" }}
                 label="Date of Birth*"
                 placeholder="Your date of birth"
                 icon={() => <CalendarSvg />}
@@ -129,6 +152,9 @@ export const FillBio = () => {
                 value={date.toLocaleDateString()}
               />
               <Input
+                name="address"
+                control={control}
+                rules={{ required: "Type your address" }}
                 label="Adrress*"
                 placeholder="Your address"
                 icon={() => <View />}
@@ -163,7 +189,7 @@ export const FillBio = () => {
                   onChange={onChangeDate}
                 />
               )}
-              <Button label="Next" onPress={goToPaymentMethod} />
+              <Button label="Next" onPress={handleSubmit(goToPaymentMethod)} />
             </Form>
           </Container>
         </Background>

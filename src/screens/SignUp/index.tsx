@@ -22,13 +22,20 @@ import { KeyboardAvoidingView, Platform, ScrollView, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Container } from "../../components/Container";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+
+type FormData = {
+  email: string;
+  password: string;
+};
 
 export const SignUp = () => {
   const [hidePassword, setHidePassword] = useState(true);
 
   const navigation = useNavigation();
 
-  const doSignUp = () => {
+  const doSignUp = (data: FormData) => {
+    console.log(data);
     navigation.navigate("FillBio");
   };
 
@@ -38,9 +45,11 @@ export const SignUp = () => {
     });
   };
 
-  const showPass = () => {
+  const toggleShowPass = () => {
     setHidePassword((prevState) => !prevState);
   };
+
+  const { control, handleSubmit } = useForm<FormData>();
 
   return (
     <KeyboardAvoidingView
@@ -53,19 +62,30 @@ export const SignUp = () => {
             <Form>
               <Heading>Sign up fro free</Heading>
               <Input
+                name="email"
+                control={control}
+                rules={{
+                  pattern: {
+                    value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+                    message: "Invalid email",
+                  },
+                }}
                 label="Email*"
                 placeholder="Email or Phone Number"
                 icon={() => <View />}
               />
               <Input
+                name="password"
+                control={control}
+                rules={{ required: "Type your password" }}
                 label="Password*"
                 placeholder="Password"
                 icon={hidePassword ? EyeClosedSvg : EyeOpenedSvg}
-                onPress={showPass}
+                onPress={toggleShowPass}
                 secureTextEntry={hidePassword}
               />
               <RememberMe />
-              <Button label="Sign up" onPress={doSignUp} />
+              <Button label="Sign up" onPress={handleSubmit(doSignUp)} />
               <Link label="Forgot the Password?" />
               <SimpleText>or continue with</SimpleText>
               <SocialLoginContainer>

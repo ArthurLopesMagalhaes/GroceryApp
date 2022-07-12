@@ -28,11 +28,21 @@ import {
   View,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { useForm, Controller } from "react-hook-form";
+import { useState } from "react";
+
+type FormData = {
+  email: string;
+  password: string;
+};
 
 export const SignIn = () => {
+  const { control, handleSubmit } = useForm<FormData>();
+  const [hidePassword, setHidePassword] = useState(true);
+
   const navigation = useNavigation();
 
-  const doSignIn = () => {
+  const doSignIn = (data: FormData) => {
     navigation.navigate("SignUp");
   };
 
@@ -41,6 +51,10 @@ export const SignIn = () => {
   };
   const goToForgotPassword = () => {
     navigation.navigate("ForgotPassword");
+  };
+
+  const toggleShowPass = () => {
+    setHidePassword((prevState) => !prevState);
   };
 
   return (
@@ -54,18 +68,33 @@ export const SignIn = () => {
             <Form>
               <Heading>Sign to your account</Heading>
               <Input
+                name="email"
+                control={control}
+                rules={{
+                  required: "Type your email",
+                  pattern: {
+                    value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+                    message: "Invalid email",
+                  },
+                }}
                 label="Email*"
                 placeholder="Email or Phone Number"
                 icon={() => <View />}
               />
+
               <Input
+                name="password"
+                control={control}
+                rules={{ required: "Type your password" }}
                 label="Password*"
                 placeholder="Password"
-                icon={EyeClosedSvg}
-                secureTextEntry
+                icon={hidePassword ? EyeClosedSvg : EyeOpenedSvg}
+                secureTextEntry={hidePassword}
+                onPress={toggleShowPass}
               />
+
               <RememberMe />
-              <Button label="Sign in" onPress={doSignIn} />
+              <Button label="Sign in" onPress={handleSubmit(doSignIn)} />
               <Link label="Forgot the Password?" onPress={goToForgotPassword} />
               <SimpleText>or continue with</SimpleText>
               <SocialLoginContainer>

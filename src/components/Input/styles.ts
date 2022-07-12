@@ -36,6 +36,20 @@ export const IconContainer = styled.TouchableOpacity`
   align-items: center;
 `;
 
+export const ErrorContainer = styled.View`
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: -12px;
+  margin-bottom: 20px;
+  margin-left: 25px;
+`;
+
+export const ErrorText = styled.Text`
+  color: ${theme.colors.error};
+  margin-left: 12px;
+`;
+
 export const styles = StyleSheet.create({
   shadow: {
     shadowColor: "#000",
