@@ -92,7 +92,7 @@ export const FillBio = () => {
   const goToPaymentMethod = (data: FormData) => {
     console.log(data);
     console.log(date);
-    // navigation.navigate("PaymentMethod");
+    navigation.navigate("PaymentMethod");
   };
 
   return (

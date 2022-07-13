@@ -4,7 +4,6 @@ import { Container } from "../../components/Container";
 import { Header } from "../../components/Header";
 import { InputMenu } from "../../components/InputMenu";
 import { OrderHistoryItem } from "./components/OrderHistoryItem";
-import { OrderItemContainer } from "./styles";
 
 const data = [
   { id: "1" },
@@ -22,14 +21,14 @@ export const OrderHistory = () => {
       <Container>
         <Header label="Order History" />
         <InputMenu />
-        <OrderItemContainer>
-          <FlatList
-            data={data}
-            renderItem={({ item }) => <OrderHistoryItem />}
-            keyExtractor={(item) => item.id}
-            showsVerticalScrollIndicator={false}
-          />
-        </OrderItemContainer>
+
+        <FlatList
+          contentContainerStyle={{ paddingTop: 10, paddingBottom: 90 }}
+          data={data}
+          renderItem={({ item }) => <OrderHistoryItem />}
+          keyExtractor={(item) => item.id}
+          showsVerticalScrollIndicator={false}
+        />
       </Container>
     </Background>
   );

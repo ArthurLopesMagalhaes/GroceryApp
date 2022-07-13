@@ -47,7 +47,7 @@ export const StackRoutes = () => {
       <Screen name="Notification" component={Notification} />
       <Screen name="Others" component={Others} />
       <Screen name="TabRoutes" component={TabRoutes} />
-      <Screen name="Favorites" component={Favorites} />
+      {/* <Screen name="Favorites" component={Favorites} /> */}
     </Navigator>
   );
 };

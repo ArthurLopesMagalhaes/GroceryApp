@@ -90,27 +90,26 @@ export const Favorites = () => {
         <Header label="Favorites" onPress={() => navigation.goBack()} />
         <InputMenu />
 
-        <CardsContainer>
-          <FlatList
-            showsVerticalScrollIndicator={false}
-            data={stores}
-            keyExtractor={(item) => item.id}
-            renderItem={({ item }) => (
-              <Favorite
-                image={item.image}
-                product={item.product}
-                store={item.store}
-                price={item.price}
-                onPress={OpenModal}
-              />
-            )}
-          />
-        </CardsContainer>
+        <FlatList
+          contentContainerStyle={{ paddingTop: 10, paddingBottom: 90 }}
+          showsVerticalScrollIndicator={false}
+          data={stores}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => (
+            <Favorite
+              image={item.image}
+              product={item.product}
+              store={item.store}
+              price={item.price}
+              onPress={OpenModal}
+            />
+          )}
+        />
       </Container>
       <Modal
         title="Are you sure want to logout?"
         cancelText="Cancel"
-        doItText="Yes, logout"
+        doItText="Yes, remove"
         icon={EmptyHeartSvg}
         ref={bottomSheetRef}
       />
