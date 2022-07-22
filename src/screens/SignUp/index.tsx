@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { KeyboardAvoidingView, Platform, ScrollView, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 import { Background } from "../../components/Background";
 import { RememberMe } from "../../components/RememberMe";
@@ -24,8 +27,21 @@ import GoogleSvg from "../../assets/google.svg";
 import EyeClosedSvg from "../../assets/closed-eye.svg";
 import EyeOpenedSvg from "../../assets/opened-eye.svg";
 
+type FormData = {
+  email: string;
+  password: string;
+};
+
+const schema = yup.object().shape({
+  email: yup.string().email("Invalid Email").required("Email is required"),
+  password: yup.string().required("Password is required"),
+});
+
 export const SignUp = () => {
   const navigation = useNavigation();
+  const { control, handleSubmit } = useForm<FormData>({
+    resolver: yupResolver(schema),
+  });
   const [hidePassword, setHidePassword] = useState(true);
 
   const doSignUp = () => {
@@ -56,6 +72,9 @@ export const SignUp = () => {
                 label="Email*"
                 placeholder="Email or Phone Number"
                 icon={() => <View />}
+                name="email"
+                control={control}
+                keyboardType="email-address"
               />
               <Input
                 label="Password*"
@@ -63,9 +82,11 @@ export const SignUp = () => {
                 icon={hidePassword ? EyeClosedSvg : EyeOpenedSvg}
                 onPress={showPass}
                 secureTextEntry={hidePassword}
+                name="password"
+                control={control}
               />
               <RememberMe />
-              <Button label="Sign up" onPress={doSignUp} />
+              <Button label="Sign up" onPress={handleSubmit(doSignUp)} />
               <Link label="Forgot the Password?" />
               <SimpleText>or continue with</SimpleText>
               <SocialLoginContainer>

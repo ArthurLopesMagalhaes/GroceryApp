@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { KeyboardAvoidingView, Platform, ScrollView, View } from "react-native";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 import { Background } from "../../components/Background";
 import { RememberMe } from "../../components/RememberMe";
@@ -24,8 +27,21 @@ import GoogleSvg from "../../assets/google.svg";
 import EyeClosedSvg from "../../assets/closed-eye.svg";
 import EyeOpenedSvg from "../../assets/opened-eye.svg";
 
+type FormData = {
+  email: string;
+  password: string;
+};
+
+const schema = yup.object().shape({
+  email: yup.string().email("Invalid Email").required("Email is required"),
+  password: yup.string().required("Password is required"),
+});
+
 export const SignIn = () => {
   const navigation = useNavigation();
+  const { control, handleSubmit } = useForm<FormData>({
+    resolver: yupResolver(schema),
+  });
   const [hidePassword, setHidePassword] = useState(true);
 
   const doSignIn = () => {
@@ -57,6 +73,9 @@ export const SignIn = () => {
                 label="Email*"
                 placeholder="Email or Phone Number"
                 icon={() => <View />}
+                control={control}
+                name="email"
+                keyboardType="email-address"
               />
               <Input
                 label="Password*"
@@ -64,9 +83,12 @@ export const SignIn = () => {
                 icon={hidePassword ? EyeClosedSvg : EyeOpenedSvg}
                 secureTextEntry={hidePassword}
                 onPress={showPass}
+                control={control}
+                name="password"
               />
               <RememberMe />
-              <Button label="Sign in" onPress={doSignIn} />
+
+              <Button label="Sign in" onPress={handleSubmit(doSignIn)} />
               <Link label="Forgot the Password?" onPress={goToForgotPassword} />
               <SimpleText>or continue with</SimpleText>
               <SocialLoginContainer>

@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { KeyboardAvoidingView, Platform, ScrollView, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 import DateTimePicker, {
   DateTimePickerEvent,
 } from "@react-native-community/datetimepicker";
@@ -25,18 +28,38 @@ import {
 } from "./styles";
 import { theme } from "../../global/theme";
 import CalendarSvg from "../../assets/calendar.svg";
+import { phoneRegex } from "../../utils/regex";
+
+type FormData = {
+  fullName: string;
+  nickName: string;
+  phoneNumber: string;
+  gender: string;
+  birthDate: Date;
+  address: string;
+};
+
+const schema = yup.object().shape({
+  fullName: yup.string().trim().required("Full name is required"),
+  nickName: yup.string().required("Nick name is required"),
+  // phoneNumber: yup.string().matches(phoneRegex, "Invalid phone number"),
+  // gender: yup.string().required(),
+  // birthDate: yup.date().required(),
+  address: yup.string().required("Address is required"),
+});
 
 export const FillBio = () => {
   const navigation = useNavigation();
-  const [fullName, setFullName] = useState("");
-  const [nickname, setNickName] = useState("");
+  const { control, handleSubmit } = useForm<FormData>({
+    resolver: yupResolver(schema),
+  });
+
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [gender, setGender] = useState("");
-  const [address, setAddress] = useState("");
   const [showGenderPicker, setShowGenderPicker] = useState(false);
   const [date, setDate] = useState(new Date());
+
+  const [gender, setGender] = useState("");
   const [showCalendar, setShowCalendar] = useState(false);
-  const [formatedDate, setFormatedDate] = useState("");
 
   const openGenderPicker = () => {
     setShowGenderPicker(true);
@@ -62,13 +85,14 @@ export const FillBio = () => {
     }-${currentDate.getDate()}`;
 
     setDate(currentDate);
-    setFormatedDate(fDate);
   };
 
-  const goToPaymentMethod = () => {
+  const goToPaymentMethod = (data: FormData) => {
+    data.phoneNumber = phoneNumber;
+    data.birthDate = date;
+    data.gender = gender;
     navigation.navigate("PaymentMethod");
   };
-
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -88,16 +112,22 @@ export const FillBio = () => {
                 label="Full Name*"
                 placeholder="Your fullname"
                 icon={() => <View />}
+                name="fullName"
+                control={control}
               />
               <Input
                 label="Nick Name*"
                 placeholder="Your nickname"
                 icon={() => <View />}
+                name="nickName"
+                control={control}
               />
               <Input
                 label="Phone Number*"
                 placeholder="Your phone number"
                 icon={() => <View />}
+                name="phoneNumber"
+                control={control}
                 keyboardType="numeric"
                 maxLength={15}
                 onChangeText={(txt) => setPhoneNumber(phoneMask(txt))}
@@ -113,15 +143,20 @@ export const FillBio = () => {
                 label="Date of Birth*"
                 placeholder="Your date of birth"
                 icon={() => <CalendarSvg />}
+                name="birthDate"
+                control={control}
                 keyboardType="numeric"
                 onPress={openCalendar}
                 maxLength={10}
                 value={date.toLocaleDateString()}
+                editable={true}
               />
               <Input
                 label="Adrress*"
                 placeholder="Your address"
                 icon={() => <View />}
+                name="address"
+                control={control}
               />
 
               <ModalPicker
@@ -159,7 +194,7 @@ export const FillBio = () => {
                   onChange={onChangeDate}
                 />
               )}
-              <Button label="Next" onPress={goToPaymentMethod} />
+              <Button label="Next" onPress={handleSubmit(goToPaymentMethod)} />
             </Form>
           </Container>
         </Background>

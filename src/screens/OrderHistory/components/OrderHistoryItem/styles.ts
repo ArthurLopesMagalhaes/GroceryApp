@@ -68,4 +68,5 @@ export const StatusText = styled.Text`
   font-family: ${theme.fonts.regular};
   font-size: 14px;
   color: ${theme.colors.white};
+  text-transform: capitalize;
 `;

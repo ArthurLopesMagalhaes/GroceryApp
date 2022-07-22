@@ -14,7 +14,7 @@ const data: OrderHistoryItemType[] = [
     store: "Lovy Grocery",
     product: "Fresh Cabbage",
     price: 10,
-    status: "canceled",
+    status: "process",
   },
 ];
 

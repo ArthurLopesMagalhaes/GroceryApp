@@ -72,10 +72,12 @@ export const theme = {
 
     succcess: "#23A757",
     success_bg: "#EDF9F0",
-    warnning: "#B95000",
+    warning: "#B95000",
     warning_bg: "#FFF4EC",
     error: "#DA1414",
     error_bg: "##FEEFEF",
+    info: "#2E5AAC",
+    info_bg: "#EEF2FA",
 
     smoother_1: "#FFFBFB",
     smoother_2: "#F6F9FF",

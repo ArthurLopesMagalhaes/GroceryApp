@@ -11,6 +11,7 @@ import {
 } from "./styles";
 
 import AlfaceImg from "../../../../assets/alface.png";
+import { theme } from "../../../../global/theme";
 
 export type OrderHistoryItemType = {
   store: string;
@@ -26,10 +27,10 @@ type Props = {
 export const OrderHistoryItem = ({ data }: Props) => {
   const orderBackground =
     data.status === "completed"
-      ? "red"
+      ? `${theme.colors.succcess}`
       : data.status === "canceled"
-      ? "blue"
-      : "green";
+      ? `${theme.colors.warning}`
+      : `${theme.colors.info}`;
 
   return (
     <Container>
@@ -42,7 +43,7 @@ export const OrderHistoryItem = ({ data }: Props) => {
         <Price>${data.price}</Price>
       </InfoContainer>
       <OrderStatus bg={orderBackground}>
-        <StatusText>Process</StatusText>
+        <StatusText>{data.status}</StatusText>
       </OrderStatus>
     </Container>
   );
