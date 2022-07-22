@@ -15,7 +15,7 @@ export declare global {
       Profile: undefined;
       TabRoutes: undefined;
       PopularStore: undefined;
-      PopularGrocery: undefined;
+      PopularGrocery: undefined | { filters: object };
       Favorites: undefined;
       Settings: undefined;
       Notification: undefined;

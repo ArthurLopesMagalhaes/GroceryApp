@@ -8,14 +8,15 @@ import {
 import { Background } from "../../components/Background";
 import { Header } from "../../components/Header";
 
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import { Container } from "../../components/Container";
 import { InputMenu } from "../../components/InputMenu";
 import { GroceryCard } from "./components/GroceryCard";
 import { StoreProps } from "../Home/components/GroceryCard";
 
 import CabbageImg from "../../assets/cabbage.png";
-import { CardsContainer } from "./styles";
+import { CardsContainer, FiltersContainer } from "./styles";
+import { Filter } from "./components/Filter";
 
 const stores = [
   {
@@ -69,14 +70,38 @@ const stores = [
   },
 ];
 
+type RouteParams = {
+  filters: [string];
+};
+
 export const PopularGrocery = () => {
   const navigation = useNavigation();
+  const route = useRoute();
+  const { filters } = route.params as RouteParams;
+  filters.map((item) => item.length === 0);
+
+  const removeFilter = () => {
+    console.log("oi");
+  };
 
   return (
     <Background>
       <Container>
         <Header label="Popular Grocery" onPress={() => navigation.goBack()} />
         <InputMenu />
+        {filters && (
+          <FiltersContainer
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={{
+              alignItems: "center",
+            }}
+          >
+            {filters.map((item, index) => (
+              <Filter key={index} label={item} onClosedPress={removeFilter} />
+            ))}
+          </FiltersContainer>
+        )}
         <FlatList
           contentContainerStyle={{ paddingTop: 10, paddingBottom: 90 }}
           showsVerticalScrollIndicator={false}

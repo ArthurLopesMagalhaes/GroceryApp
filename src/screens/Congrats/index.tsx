@@ -24,7 +24,7 @@ export const Congrats = () => {
           <Phrase>Your profile is read to use</Phrase>
         </Content>
         <ButtonContainer>
-          <Button label="Got to homepage" onPress={goToHomePage} />
+          <Button label="Go to homepage" onPress={goToHomePage} />
         </ButtonContainer>
       </Container>
     </Background>
