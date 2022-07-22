@@ -37,7 +37,7 @@ export const SetLocation = () => {
   return (
     <Background>
       <Container>
-        <Header label="Set your Location" />
+        <Header label="Set your Location" onPress={() => navigation.goBack()} />
         <Heading>
           This data will be displayed in your account profile for security
         </Heading>
@@ -77,7 +77,6 @@ export const SetLocation = () => {
               </AddressCard>
             </>
           )}
-
           <Button label="Set Location" onPress={goToCongrats} />
         </Content>
       </Container>

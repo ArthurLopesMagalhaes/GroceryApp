@@ -1,20 +1,18 @@
-import {
-  Alert,
-  KeyboardAvoidingView,
-  Platform,
-  ScrollView,
-  Text,
-  View,
-} from "react-native";
-
+import { useState } from "react";
+import { KeyboardAvoidingView, Platform, ScrollView, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import DateTimePicker, {
   DateTimePickerEvent,
 } from "@react-native-community/datetimepicker";
+import { dateMask, phoneMask } from "../../utils/masks";
+import { genders } from "../../utils/genders";
 
 import { Background } from "../../components/Background";
 import { Button } from "../../components/Button";
 import { Header } from "../../components/Header";
 import { Input } from "../../components/Input";
+import { InputSelect } from "../../components/InputSelect";
+import { Container } from "../../components/Container";
 import {
   Form,
   Heading,
@@ -23,44 +21,22 @@ import {
   ModalPicker,
   ModalSelectItem,
   SelectItem,
+  TouchableWithoutFeedback,
 } from "./styles";
-import CalendarSvg from "../../assets/calendar.svg";
-import ArrowDownSvg from "../../assets/arrowdown.svg";
-import { useNavigation } from "@react-navigation/native";
-import { Container } from "../../components/Container";
-import { dateMask, phoneMask } from "../../utils/masks";
-import { useState } from "react";
-import { InputSelect } from "../../components/InputSelect";
-
-import { genders } from "../../utils/genders";
 import { theme } from "../../global/theme";
-import { useForm } from "react-hook-form";
-
-type FormData = {
-  fullname: string;
-  nickname: string;
-  phone_number: string;
-  gender: string;
-  birth_date: Date;
-  address: string;
-};
+import CalendarSvg from "../../assets/calendar.svg";
 
 export const FillBio = () => {
-  const { control, handleSubmit } = useForm<FormData>();
-  // const [fullName, setFullName] = useState("");
-  // const [nickname, setNickName] = useState("");
+  const navigation = useNavigation();
+  const [fullName, setFullName] = useState("");
+  const [nickname, setNickName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [gender, setGender] = useState("");
-
   const [address, setAddress] = useState("");
-
   const [showGenderPicker, setShowGenderPicker] = useState(false);
-
   const [date, setDate] = useState(new Date());
   const [showCalendar, setShowCalendar] = useState(false);
   const [formatedDate, setFormatedDate] = useState("");
-
-  const navigation = useNavigation();
 
   const openGenderPicker = () => {
     setShowGenderPicker(true);
@@ -89,9 +65,7 @@ export const FillBio = () => {
     setFormatedDate(fDate);
   };
 
-  const goToPaymentMethod = (data: FormData) => {
-    console.log(data);
-    console.log(date);
+  const goToPaymentMethod = () => {
     navigation.navigate("PaymentMethod");
   };
 
@@ -102,36 +76,32 @@ export const FillBio = () => {
       <ScrollView showsVerticalScrollIndicator={false}>
         <Background>
           <Container>
-            <Header label="Fill in your bio" />
+            <Header
+              label="Fill in your bio"
+              onPress={() => navigation.goBack()}
+            />
             <Heading>
               This data will be displayed in your account profile for security
             </Heading>
             <Form>
               <Input
-                name="fullname"
-                control={control}
-                rules={{ required: "Type your full name" }}
                 label="Full Name*"
                 placeholder="Your fullname"
                 icon={() => <View />}
               />
               <Input
-                name="nickname"
-                control={control}
-                rules={{ required: "Type your nickname" }}
                 label="Nick Name*"
                 placeholder="Your nickname"
                 icon={() => <View />}
               />
               <Input
-                name="phone_number"
-                control={control}
-                rules={{ required: "Type your phone number" }}
                 label="Phone Number*"
                 placeholder="Your phone number"
                 icon={() => <View />}
                 keyboardType="numeric"
                 maxLength={15}
+                onChangeText={(txt) => setPhoneNumber(phoneMask(txt))}
+                value={phoneNumber}
               />
               <InputSelect
                 label="Gender*"
@@ -140,9 +110,6 @@ export const FillBio = () => {
                 value={gender}
               />
               <Input
-                name="birth_date"
-                control={control}
-                rules={{ required: "Choose your date of birth" }}
                 label="Date of Birth*"
                 placeholder="Your date of birth"
                 icon={() => <CalendarSvg />}
@@ -152,9 +119,6 @@ export const FillBio = () => {
                 value={date.toLocaleDateString()}
               />
               <Input
-                name="address"
-                control={control}
-                rules={{ required: "Type your address" }}
                 label="Adrress*"
                 placeholder="Your address"
                 icon={() => <View />}
@@ -165,20 +129,26 @@ export const FillBio = () => {
                 transparent
                 visible={showGenderPicker}
                 onRequestClose={() => setShowGenderPicker(false)}
+                statusBarTranslucent
               >
-                <ModalContent>
-                  <ModalBox>
-                    {genders.map((item) => (
-                      <ModalSelectItem
-                        key={item.value}
-                        activeOpacity={0.5}
-                        onPress={() => onSelectGender(item.value)}
-                      >
-                        <SelectItem>{item.label}</SelectItem>
-                      </ModalSelectItem>
-                    ))}
-                  </ModalBox>
-                </ModalContent>
+                <TouchableWithoutFeedback
+                  onPress={() => setShowGenderPicker(false)}
+                >
+                  <ModalContent>
+                    <ModalBox>
+                      {genders.map((item) => (
+                        <ModalSelectItem
+                          key={item.value}
+                          activeOpacity={0.5}
+                          onPress={() => onSelectGender(item.value)}
+                          underlayColor={theme.colors.primary}
+                        >
+                          <SelectItem>{item.label}</SelectItem>
+                        </ModalSelectItem>
+                      ))}
+                    </ModalBox>
+                  </ModalContent>
+                </TouchableWithoutFeedback>
               </ModalPicker>
 
               {showCalendar && (
@@ -189,7 +159,7 @@ export const FillBio = () => {
                   onChange={onChangeDate}
                 />
               )}
-              <Button label="Next" onPress={handleSubmit(goToPaymentMethod)} />
+              <Button label="Next" onPress={goToPaymentMethod} />
             </Form>
           </Container>
         </Background>

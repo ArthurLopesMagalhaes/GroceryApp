@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import { useNavigation } from "@react-navigation/native";
 
 import { Background } from "../../components/Background";
@@ -7,17 +6,14 @@ import { Button } from "../../components/Button";
 import { Header } from "../../components/Header";
 import { CardButton } from "../../components/CardButton";
 import { Container } from "../../components/Container";
-
 import { CardsContainer, Content, Heading } from "./styles";
-
 import PaypalSvg from "../../assets/paypal.svg";
 import VisaSvg from "../../assets/visa.svg";
 import PayoneerSvg from "../../assets/payoneer.svg";
 
 export const PaymentMethod = () => {
-  const [paymentSelected, setPaymentSelected] = useState("");
-
   const navigation = useNavigation();
+  const [paymentSelected, setPaymentSelected] = useState("");
 
   const handlePaymentMethod = (method: string) => {
     setPaymentSelected(method);
@@ -30,7 +26,7 @@ export const PaymentMethod = () => {
   return (
     <Background>
       <Container>
-        <Header label="Payment method" />
+        <Header label="Payment method" onPress={() => navigation.goBack()} />
         <Heading>
           This data will be displayed in your account profile for security
         </Heading>

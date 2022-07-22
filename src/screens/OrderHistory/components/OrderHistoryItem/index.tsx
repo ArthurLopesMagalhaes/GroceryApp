@@ -12,18 +12,36 @@ import {
 
 import AlfaceImg from "../../../../assets/alface.png";
 
-export const OrderHistoryItem = () => {
+export type OrderHistoryItemType = {
+  store: string;
+  product: string;
+  price: number;
+  status: "completed" | "process" | "canceled";
+};
+
+type Props = {
+  data: OrderHistoryItemType;
+};
+
+export const OrderHistoryItem = ({ data }: Props) => {
+  const orderBackground =
+    data.status === "completed"
+      ? "red"
+      : data.status === "canceled"
+      ? "blue"
+      : "green";
+
   return (
     <Container>
       <ImgContainer>
         <Image source={AlfaceImg} resizeMode="cover" />
       </ImgContainer>
       <InfoContainer>
-        <Product>Fresh Cabbage</Product>
-        <Store>Lovy Grocery</Store>
-        <Price>$10</Price>
+        <Product>{data.product}</Product>
+        <Store>{data.store}</Store>
+        <Price>${data.price}</Price>
       </InfoContainer>
-      <OrderStatus>
+      <OrderStatus bg={orderBackground}>
         <StatusText>Process</StatusText>
       </OrderStatus>
     </Container>

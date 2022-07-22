@@ -3,16 +3,19 @@ import { Background } from "../../components/Background";
 import { Container } from "../../components/Container";
 import { Header } from "../../components/Header";
 import { InputMenu } from "../../components/InputMenu";
-import { OrderHistoryItem } from "./components/OrderHistoryItem";
+import {
+  OrderHistoryItem,
+  OrderHistoryItemType,
+} from "./components/OrderHistoryItem";
+import { SmileySad } from "phosphor-react-native";
 
-const data = [
-  { id: "1" },
-  { id: "2" },
-  { id: "3" },
-  { id: "4" },
-  { id: "5" },
-  { id: "6" },
-  { id: "7" },
+const data: OrderHistoryItemType[] = [
+  {
+    store: "Lovy Grocery",
+    product: "Fresh Cabbage",
+    price: 10,
+    status: "canceled",
+  },
 ];
 
 export const OrderHistory = () => {
@@ -25,9 +28,10 @@ export const OrderHistory = () => {
         <FlatList
           contentContainerStyle={{ paddingTop: 10, paddingBottom: 90 }}
           data={data}
-          renderItem={({ item }) => <OrderHistoryItem />}
-          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => <OrderHistoryItem data={item} />}
+          keyExtractor={(item) => item.product}
           showsVerticalScrollIndicator={false}
+          ListEmptyComponent={() => <SmileySad size={20} color="red" />}
         />
       </Container>
     </Background>

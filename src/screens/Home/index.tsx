@@ -4,7 +4,6 @@ import { Container } from "../../components/Container";
 import { Background } from "../../components/Background";
 import {
   ScrollView,
-  FlatListContainer,
   Greeting,
   IconsContainer,
   Left,
@@ -51,7 +50,7 @@ export const Home = () => {
   const navigation = useNavigation();
 
   const goToFavorites = () => {
-    navigation.navigate("Favorites");
+    navigation.navigate("ProfileStackScreens", { screen: "Favorites" });
   };
   const goToPopularStore = () => {
     navigation.navigate("PopularStore");

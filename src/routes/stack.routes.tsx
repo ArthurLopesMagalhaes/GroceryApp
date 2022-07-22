@@ -1,7 +1,5 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-const { Navigator, Screen } = createNativeStackNavigator();
-
 import { SplashScreen } from "../screens/SplashScreen";
 import { SignIn } from "../screens/SignIn";
 import { SignUp } from "../screens/SignUp";
@@ -13,7 +11,6 @@ import { Congrats } from "../screens/Congrats";
 import { ForgotPassword } from "../screens/ForgotPassword";
 import { Home } from "../screens/Home";
 import { PopularStore } from "../screens/PopularStore";
-import { TabRoutes } from "./tab.routes";
 import { PopularGrocery } from "../screens/PopularGrocery";
 import { Profile } from "../screens/Profile";
 import { Favorites } from "../screens/Favorite";
@@ -23,16 +20,20 @@ import { FindGrocery } from "../screens/FindGrocery";
 import { Others } from "../screens/Others";
 import { OrderDetails } from "../screens/OrderDetails";
 import { OrderHistory } from "../screens/OrderHistory";
+import { Chat } from "../screens/Chat";
+
+import { TabRoutes } from "./tab.routes";
+
+const { Navigator, Screen } = createNativeStackNavigator();
 
 export const StackRoutes = () => {
   return (
     <Navigator
-      initialRouteName="Splash"
+      initialRouteName="SignIn"
       screenOptions={{
         headerShown: false,
       }}
     >
-      <Screen name="Splash" component={SplashScreen} />
       <Screen name="SignIn" component={SignIn} />
       <Screen name="SignUp" component={SignUp} />
       <Screen name="FillBio" component={FillBio} />
@@ -47,7 +48,6 @@ export const StackRoutes = () => {
       <Screen name="Notification" component={Notification} />
       <Screen name="Others" component={Others} />
       <Screen name="TabRoutes" component={TabRoutes} />
-      {/* <Screen name="Favorites" component={Favorites} /> */}
     </Navigator>
   );
 };
@@ -77,6 +77,18 @@ export const OrderStackScreen = () => {
     >
       <Screen name="OrderHistory" component={OrderHistory} />
       <Screen name="OrderDetails" component={OrderDetails} />
+    </Navigator>
+  );
+};
+export const ChatStackScreen = () => {
+  return (
+    <Navigator
+      initialRouteName="Chat"
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <Screen name="Chat" component={Chat} />
     </Navigator>
   );
 };

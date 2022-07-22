@@ -2,6 +2,10 @@ import { StyleSheet } from "react-native";
 import styled from "styled-components/native";
 import { theme } from "../../../../global/theme";
 
+type StatusProps = {
+  bg: string;
+};
+
 export const Container = styled.View`
   height: 99px;
   border-radius: 16px;
@@ -51,10 +55,10 @@ export const Price = styled.Text`
   color: ${theme.colors.primary};
 `;
 
-export const OrderStatus = styled.View`
+export const OrderStatus = styled.View<StatusProps>`
   height: 25px;
   border-radius: 15px;
-  background-color: red;
+  background-color: ${(props) => props.bg};
   padding: 2px 19px;
   justify-content: center;
   align-items: center;

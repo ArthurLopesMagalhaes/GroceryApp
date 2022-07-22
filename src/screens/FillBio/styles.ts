@@ -17,6 +17,7 @@ export const Form = styled.View`
 `;
 
 export const ModalPicker = styled.Modal``;
+export const TouchableWithoutFeedback = styled.TouchableWithoutFeedback``;
 
 export const ModalContent = styled.View`
   width: 100%;
@@ -27,19 +28,23 @@ export const ModalContent = styled.View`
 `;
 
 export const ModalBox = styled.View`
-  background-color: ${theme.colors.secondary};
+  background-color: ${theme.colors.white};
   border-radius: 16px;
   width: 80%;
   height: 200px;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  overflow: hidden;
 `;
 
-export const ModalSelectItem = styled.TouchableOpacity`
+export const ModalSelectItem = styled.TouchableHighlight`
   width: 100%;
   justify-content: center;
-  padding-left: 30px;
+  align-items: center;
   height: 50px;
+  flex: 1;
 `;
 
-export const SelectItem = styled.Text``;
+export const SelectItem = styled.Text`
+  font-family: ${theme.fonts.semibold};
+  color: ${theme.colors.black};
+  font-size: 18px;
+`;

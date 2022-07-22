@@ -1,4 +1,3 @@
-import { StyleSheet } from "react-native";
 import styled from "styled-components/native";
 import { theme } from "../../global/theme";
 
@@ -20,10 +19,6 @@ export const Content = styled.View`
   align-items: center;
 `;
 
-export const CardsContainer = styled.View`
-  margin-top: 24px;
-`;
-
 export const ProfilePhotoContainer = styled.View`
   width: 250px;
   height: 250px;
@@ -31,18 +26,6 @@ export const ProfilePhotoContainer = styled.View`
   background-color: ${theme.colors.secondary200};
   margin-top: 24px;
   position: relative;
-`;
-
-export const EditButton = styled.TouchableHighlight`
-  width: 50px;
-  height: 50px;
-  border-radius: 25px;
-  background-color: ${theme.colors.primary};
-  position: absolute;
-  right: 10px;
-  bottom: 2px;
-  justify-content: center;
-  align-items: center;
 `;
 
 export const MapContainer = styled.View`

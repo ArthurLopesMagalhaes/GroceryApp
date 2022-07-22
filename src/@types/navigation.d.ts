@@ -21,6 +21,11 @@ export declare global {
       Notification: undefined;
       FindGrocery: undefined;
       Others: undefined;
+      ProfileStackScreens:
+        | undefined
+        | {
+            screen: string;
+          };
     }
   }
 }

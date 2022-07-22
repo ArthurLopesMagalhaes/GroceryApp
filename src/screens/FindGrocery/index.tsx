@@ -1,21 +1,13 @@
 import { useNavigation } from "@react-navigation/native";
+import { useState } from "react";
 
+import { FilterTag } from "../FindGrocery/components/FilterTag/index";
 import { Background } from "../../components/Background";
 import { Header } from "../../components/Header";
 import { Container } from "../../components/Container";
 import { InputMenu } from "../../components/InputMenu";
-import { FilterTag } from "../FindGrocery/components/FilterTag/index";
-
-import { ScrollView, TagContainer, Title } from "./styles";
 import { Button } from "../../components/Button";
-import { useState } from "react";
-import { Alert } from "react-native";
-
-type Filters = {
-  type: string;
-  location: number;
-  grocery: string;
-};
+import { ScrollView, TagContainer, Title } from "./styles";
 
 export const FindGrocery = () => {
   const navigation = useNavigation();
@@ -25,7 +17,7 @@ export const FindGrocery = () => {
 
   const filters = { type, location, grocery };
 
-  const PeekFilter = (filter: string | number) => {};
+  const PickFilter = (filter: string | number) => {};
 
   const goToHome = () => {
     navigation.reset({
