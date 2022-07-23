@@ -81,6 +81,7 @@ export const Favorites = () => {
 
   const bottomSheetRef = useRef<BottomSheet>(null);
   const OpenModal = () => {
+    navigation.setOptions({ tabBarStyle: { display: "none" } });
     bottomSheetRef.current?.expand();
   };
 

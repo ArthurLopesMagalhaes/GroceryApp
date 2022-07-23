@@ -49,7 +49,7 @@ export const SignIn = () => {
   };
 
   const goToSignUp = () => {
-    navigation.navigate("SignUp");
+    navigation.navigate("TabRoutes");
   };
   const goToForgotPassword = () => {
     navigation.navigate("ForgotPassword");

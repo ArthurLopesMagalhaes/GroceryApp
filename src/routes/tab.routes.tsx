@@ -1,23 +1,17 @@
+import { StyleSheet, Text, View } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-import { StyleSheet, Text, View } from "react-native";
-
-import {
-  ChatStackScreen,
-  HomeStackScreens,
-  OrderStackScreen,
-  ProfileStackScreens,
-} from "./stack.routes";
+import { theme } from "../global/theme";
+import { HomeStackScreens } from "./HomeStack";
+import { ProfileStackScreens } from "./ProfileStack";
+const { Navigator, Screen } = createBottomTabNavigator();
 
 import HomeSvg from "../assets/home.svg";
 import OrderSvg from "../assets/cart.svg";
 import ChatSvg from "../assets/chat.svg";
 import ProfileSvg from "../assets/profile.svg";
-
-import { theme } from "../global/theme";
-import { CustomTabBar } from "../components/CustomTabBar";
-
-const { Navigator, Screen } = createBottomTabNavigator();
+import { OrderStackScreens } from "./OrderStack";
+import { ChatStackScreens } from "./ChatStack";
 
 export const TabRoutes = () => {
   return (
@@ -56,7 +50,7 @@ export const TabRoutes = () => {
       />
       <Screen
         name="OrderStackScreen"
-        component={OrderStackScreen}
+        component={OrderStackScreens}
         options={{
           tabBarIcon: ({ focused }) =>
             focused ? (
@@ -71,7 +65,7 @@ export const TabRoutes = () => {
       />
       <Screen
         name="ChatStackScreen"
-        component={ChatStackScreen}
+        component={ChatStackScreens}
         options={{
           tabBarIcon: ({ focused }) =>
             focused ? (

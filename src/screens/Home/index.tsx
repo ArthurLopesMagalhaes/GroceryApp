@@ -50,7 +50,13 @@ export const Home = () => {
   const navigation = useNavigation();
 
   const goToFavorites = () => {
-    navigation.navigate("ProfileStackScreens", { screen: "Favorites" });
+    null;
+    // navigation.reset({
+    //   routes: [
+    //     { name: "ProfileStackScreens", params: { screen: "Favorites" } },
+    //   ],
+    // });
+    // navigation.navigate("ProfileStackScreens", { screen: "Favorites" });
   };
   const goToPopularStore = () => {
     navigation.navigate("PopularStore");

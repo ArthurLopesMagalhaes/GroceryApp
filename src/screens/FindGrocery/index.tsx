@@ -12,12 +12,10 @@ import { ScrollView, TagContainer, Title } from "./styles";
 export const FindGrocery = () => {
   const navigation = useNavigation();
   const [type, setType] = useState("");
-  const [location, setLocation] = useState(0);
+  const [location, setLocation] = useState("");
   const [grocery, setGrocery] = useState("");
 
-  const filters = [type, location, grocery];
-
-  const PickFilter = (filter: string | number) => {};
+  const filters = [type, location, grocery].filter(Boolean);
 
   const goToHome = () => {
     navigation.reset({
@@ -58,23 +56,23 @@ export const FindGrocery = () => {
           <TagContainer>
             <FilterTag
               text="1 km"
-              active={location === 1}
-              onPress={() => setLocation(1)}
+              active={location === "1 km"}
+              onPress={() => setLocation("1 km")}
             />
             <FilterTag
               text="< 5 km"
-              active={location === 5}
-              onPress={() => setLocation(5)}
+              active={location === "< 5 km"}
+              onPress={() => setLocation("< 5 km")}
             />
             <FilterTag
               text="< 10 km"
-              active={location === 10}
-              onPress={() => setLocation(10)}
+              active={location === "< 10 km"}
+              onPress={() => setLocation("< 10 km")}
             />
             <FilterTag
               text="> 10 km"
-              active={location === 11}
-              onPress={() => setLocation(11)}
+              active={location === "> 10 km"}
+              onPress={() => setLocation("> 10 km")}
             />
           </TagContainer>
           <Title>Grocery</Title>

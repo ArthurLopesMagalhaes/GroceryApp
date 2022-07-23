@@ -1,10 +1,4 @@
-import {
-  FlatList,
-  KeyboardAvoidingView,
-  Platform,
-  ScrollView,
-  View,
-} from "react-native";
+import { FlatList } from "react-native";
 import { Background } from "../../components/Background";
 import { Header } from "../../components/Header";
 
@@ -77,11 +71,14 @@ type RouteParams = {
 export const PopularGrocery = () => {
   const navigation = useNavigation();
   const route = useRoute();
-  const { filters } = route.params as RouteParams;
-  filters.map((item) => item.length === 0);
+
+  let filters: string[] = [];
+  if (route.params) {
+    ({ filters } = route.params as RouteParams);
+  }
 
   const removeFilter = () => {
-    console.log("oi");
+    console.log(filters.length);
   };
 
   return (
@@ -89,7 +86,7 @@ export const PopularGrocery = () => {
       <Container>
         <Header label="Popular Grocery" onPress={() => navigation.goBack()} />
         <InputMenu />
-        {filters && (
+        {filters.length > 0 && (
           <FiltersContainer
             horizontal
             showsHorizontalScrollIndicator={false}
@@ -98,7 +95,11 @@ export const PopularGrocery = () => {
             }}
           >
             {filters.map((item, index) => (
-              <Filter key={index} label={item} onClosedPress={removeFilter} />
+              <Filter
+                key={index}
+                label={item.toString()}
+                onClosedPress={removeFilter}
+              />
             ))}
           </FiltersContainer>
         )}

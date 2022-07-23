@@ -18,7 +18,7 @@ export const InputContainer = styled.View`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 24px;
+  padding: 0px 24px;
   border-radius: 48px;
   border: 1px solid ${theme.colors.neutral_8};
   width: 100%;
@@ -26,6 +26,7 @@ export const InputContainer = styled.View`
 `;
 export const InputField = styled.TextInput`
   font-family: ${theme.fonts.semibold};
+  height: 48px;
   flex: 1;
   font-size: 16px;
 `;
