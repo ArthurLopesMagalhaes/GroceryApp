@@ -8,6 +8,9 @@ import { Settings } from "../screens/Settings";
 import { Notification } from "../screens/Notification";
 import { FindGrocery } from "../screens/FindGrocery";
 import { Others } from "../screens/Others";
+import { StoreHome } from "../screens/StoreHome";
+import { Testimonials } from "../screens/Testimonials";
+import { GroceryDetails } from "../screens/GroceryDetails";
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
@@ -27,6 +30,9 @@ export const AppRoutes = () => {
       <Screen name="FindGrocery" component={FindGrocery} />
       <Screen name="Notification" component={Notification} />
       <Screen name="Others" component={Others} />
+      <Screen name="StoreHome" component={StoreHome} />
+      <Screen name="GroceryDetails" component={GroceryDetails} />
+      <Screen name="Testimonials" component={Testimonials} />
     </Navigator>
   );
 };

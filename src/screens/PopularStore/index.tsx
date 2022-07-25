@@ -14,8 +14,8 @@ import { CardsContainer } from "./styles";
 export const PopularStore = () => {
   const navigation = useNavigation();
 
-  const goToPaymentMethod = () => {
-    navigation.navigate("PaymentMethod");
+  const goToStoreScreen = (id: string) => {
+    navigation.navigate("StoreHome", { storeId: id });
   };
 
   const stores: StoreProps[] = [
@@ -92,6 +92,7 @@ export const PopularStore = () => {
                 icon={item.icon}
                 name={item.name}
                 time={item.time}
+                onPress={() => goToStoreScreen(item.id)}
               />
             ))}
           </CardsContainer>

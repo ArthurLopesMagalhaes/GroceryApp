@@ -8,6 +8,7 @@ import { Container } from "../../components/Container";
 import { InputMenu } from "../../components/InputMenu";
 import { Button } from "../../components/Button";
 import { ScrollView, TagContainer, Title } from "./styles";
+import { Alert } from "react-native";
 
 export const FindGrocery = () => {
   const navigation = useNavigation();

@@ -1,6 +1,7 @@
 import { SvgProps } from "react-native-svg";
 import { Container, styles, Time, Title } from "./styles";
 import { Shadow } from "react-native-shadow-2";
+import { TouchableOpacityProps } from "react-native";
 
 export type StoreProps = {
   id: string;
@@ -9,15 +10,13 @@ export type StoreProps = {
   icon: React.FC<SvgProps>;
 };
 
-export const GroceryCard = ({
-  id,
-  name,
-  time,
-  icon: Icon,
-  ...rest
-}: StoreProps) => {
+type Props = StoreProps & {
+  onPress: () => void;
+};
+
+export const GroceryCard = ({ id, name, time, icon: Icon, onPress }: Props) => {
   return (
-    <Container>
+    <Container onPress={onPress}>
       <Icon />
       <Title>{name}</Title>
       <Time>{time} mins</Time>

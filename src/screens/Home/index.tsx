@@ -50,12 +50,12 @@ export const Home = () => {
   const navigation = useNavigation();
 
   const goToFavorites = () => {
-    null;
-    // navigation.reset({
-    //   routes: [
-    //     { name: "ProfileStackScreens", params: { screen: "Favorites" } },
-    //   ],
-    // });
+    // null;
+    navigation.reset({
+      routes: [
+        { name: "ProfileStackScreens", params: { screen: "Favorites" } },
+      ],
+    });
     // navigation.navigate("ProfileStackScreens", { screen: "Favorites" });
   };
   const goToPopularStore = () => {
@@ -63,6 +63,13 @@ export const Home = () => {
   };
   const goToPopularGrocery = () => {
     navigation.navigate("PopularGrocery");
+  };
+
+  const goToStoreScreen = (id: string) => {
+    navigation.navigate("StoreHome", { storeId: id });
+  };
+  const goToGroceryScreen = (id: string) => {
+    navigation.navigate("GroceryDetails", { groceryId: id });
   };
 
   return (
@@ -98,6 +105,7 @@ export const Home = () => {
                 icon={item.icon}
                 name={item.name}
                 time={item.time}
+                onPress={() => goToStoreScreen(item.id)}
               />
             )}
             keyExtractor={(item) => item.id}
@@ -118,6 +126,7 @@ export const Home = () => {
                 icon={item.icon}
                 name={item.name}
                 time={item.time}
+                onPress={() => goToGroceryScreen(item.id)}
               />
             )}
             keyExtractor={(item) => item.id}

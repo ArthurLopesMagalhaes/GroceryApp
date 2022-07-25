@@ -8,6 +8,8 @@ export const Label = styled.Text`
   color: ${theme.colors.white};
 `;
 
+export const ButtonContainer = styled.TouchableOpacity``;
+
 export const styles = StyleSheet.create({
   button: {
     width: "100%",
@@ -15,7 +17,7 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginTop: 20,
-    backgroundColor: theme.colors.primary,
+    backgroundColor: theme.colors.white,
     borderRadius: 32,
     overflow: "hidden",
     marginBottom: 20,

@@ -10,22 +10,36 @@ import {
 } from "./styles";
 
 import ProfileSvg from "../../assets/profile.png";
-import StarSvg from "../../assets/star.svg";
+import { Star, StarHalf } from "phosphor-react-native";
 
-export const TestimonialCard = () => {
+export type TestimonialsProps = {
+  author: string;
+  date: string;
+  comment: string;
+  rating: number;
+};
+
+type Props = {
+  data: TestimonialsProps;
+};
+
+export const TestimonialCard = ({ data }: Props) => {
   return (
     <Container>
       <Image source={ProfileSvg} />
       <InfoContainer>
-        <Name>Jenny Wilson</Name>
-        <Date>December 20, 2021</Date>
-        <Text>
-          The grocery is very delicious and the service is satisfying! Love it!
-        </Text>
+        <Name>{data.author}</Name>
+        <Date>{data.date}</Date>
+        <Text>{data.comment}</Text>
       </InfoContainer>
       <StarsContainer>
-        <StarSvg width={16} />
-        <Number>5</Number>
+        {data.rating < 5 ? (
+          <StarHalf size={16} color="#ffffff" weight="fill" />
+        ) : (
+          <Star size={16} color="#ffffff" weight="fill" />
+        )}
+
+        <Number>{data.rating}</Number>
       </StarsContainer>
     </Container>
   );
