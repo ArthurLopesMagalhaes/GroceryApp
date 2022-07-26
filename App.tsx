@@ -1,3 +1,5 @@
+import { Provider } from "react-redux";
+
 import {
   SourceSansPro_400Regular,
   SourceSansPro_600SemiBold,
@@ -7,6 +9,7 @@ import { StatusBar } from "react-native";
 import { gestureHandlerRootHOC } from "react-native-gesture-handler";
 import { MainRoutes } from "./src/routes";
 import { Preload } from "./src/screens/Preload";
+import { store } from "./src/redux/store";
 
 function App() {
   const [fontsLoaded] = useFonts({
@@ -19,7 +22,7 @@ function App() {
   }
 
   return (
-    <>
+    <Provider store={store}>
       <StatusBar
         animated={true}
         backgroundColor="transparent"
@@ -27,7 +30,7 @@ function App() {
         translucent
       />
       <MainRoutes />
-    </>
+    </Provider>
   );
 }
 
