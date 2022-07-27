@@ -16,6 +16,7 @@ type Props = TouchableOpacityProps & {
   label: string;
   hasArrow?: boolean;
   bg?: string;
+  onPress?: () => void;
 };
 
 export const SettingsItem = ({
@@ -23,11 +24,11 @@ export const SettingsItem = ({
   label,
   hasArrow = true,
   bg = theme.colors.primary100,
-  ...rest
+  onPress,
 }: Props) => {
   return (
     <>
-      <Container {...rest}>
+      <Container onPress={onPress}>
         <IconContainer bg={bg}>
           <Icon width={16} height={16} />
         </IconContainer>

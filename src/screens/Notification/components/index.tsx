@@ -1,22 +1,20 @@
-import { useState } from "react";
 import { LineDivider } from "../../../components/SettingsItem/styles";
 import { theme } from "../../../global/theme";
 import { Container, Label, Switch } from "./styles";
 
 type Props = {
   text: string;
+  value: boolean;
+  toggleSwitch: () => void;
 };
 
-export const NotificationItem = ({ text }: Props) => {
-  const [isEnabled, setIsEnabled] = useState(false);
-  const toggleSwitch = () => setIsEnabled((prevState) => !prevState);
-
+export const NotificationItem = ({ text, value, toggleSwitch }: Props) => {
   return (
     <>
       <Container>
         <Label>{text}</Label>
         <Switch
-          value={isEnabled}
+          value={value}
           onValueChange={toggleSwitch}
           thumbColor="white"
           trackColor={{

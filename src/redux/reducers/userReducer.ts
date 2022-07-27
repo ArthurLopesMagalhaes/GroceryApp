@@ -6,7 +6,7 @@ interface UserState {
 }
 
 const initialState = {
-  name: "",
+  name: "Arthur",
   age: 18,
 } as UserState;
 

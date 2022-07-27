@@ -16,9 +16,11 @@ import { theme } from "../../global/theme";
 import { useNavigation } from "@react-navigation/native";
 import { Modal } from "../../components/Modal";
 import { useRef } from "react";
-import BottomSheet, { BottomSheetBackdrop } from "@gorhom/bottom-sheet";
+import BottomSheet from "@gorhom/bottom-sheet";
+import { useAppSelector } from "../../redux/hooks/useAppSelector";
 
 export const Settings = () => {
+  const notification = useAppSelector((state) => state.notification);
   const navigation = useNavigation();
   const bottomSheetRef = useRef<BottomSheet>(null);
   const logoutModal = () => {

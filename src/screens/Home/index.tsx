@@ -24,6 +24,7 @@ import { GroceryCard, StoreProps } from "./components/GroceryCard";
 import LovyGrocerySvg from "../../assets/lovy-grocery.svg";
 import { CustomTabBar } from "../../components/CustomTabBar";
 import { useNavigation } from "@react-navigation/native";
+import { useAppSelector } from "../../redux/hooks/useAppSelector";
 
 const stores: StoreProps[] = [
   {
@@ -47,6 +48,8 @@ const stores: StoreProps[] = [
 ];
 
 export const Home = () => {
+  const user = useAppSelector((state) => state.user);
+
   const navigation = useNavigation();
 
   const goToFavorites = () => {
@@ -78,7 +81,7 @@ export const Home = () => {
         <NavContainer>
           <Left>
             <Logo source={LogoImg} />
-            <Greeting>Hello, Daniel!</Greeting>
+            <Greeting>Hello, {user.name}!</Greeting>
           </Left>
           <IconsContainer>
             <MiniIcon icon={BellSvg} />

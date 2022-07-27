@@ -4,11 +4,12 @@ import { Container } from "./styles";
 
 type Props = {
   icon: React.FC<SvgProps>;
+  onPress?: () => void;
 };
 
-export const Icons = ({ icon: Icon, ...rest }: Props) => {
+export const Icons = ({ icon: Icon, onPress }: Props) => {
   return (
-    <Container>
+    <Container onPress={onPress}>
       <Icon width={17} height={17} />
     </Container>
   );
