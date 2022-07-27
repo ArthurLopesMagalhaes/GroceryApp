@@ -4,6 +4,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { persistReducer } from "redux-persist";
 
 import userReducer from "./reducers/userReducer";
+import chartReducer from "./reducers/chartReducer";
 
 const persistConfig = {
   key: "root",
@@ -14,6 +15,7 @@ export const store = configureStore({
   reducer: {
     user: userReducer,
     notification: notificationPreferencesReducer,
+    cart: chartReducer,
   },
 });
 

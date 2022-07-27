@@ -43,7 +43,7 @@ export const Profile = () => {
 
   return (
     <ContainerScreen>
-      <ImageContainer source={ProfilePicture} />
+      <ImageContainer source={{ uri: user.avatar }} />
       <BottomSheet
         ref={bottomSheetRef}
         snapPoints={["60%", "85%"]}

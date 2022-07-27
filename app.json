@@ -2,6 +2,7 @@
   "expo": {
     "name": "GroceryApp",
     "slug": "groceryapp",
+    "scheme": "groceryapp",
     "version": "1.0.0",
     "orientation": "portrait",
     "owner": "xarthurlm",
