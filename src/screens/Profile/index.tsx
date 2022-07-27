@@ -3,6 +3,8 @@ import { useRef } from "react";
 import { MemberType } from "./components/MemberType/index";
 import { Icons } from "../../components/Icons";
 
+import { useAppSelector } from "../../redux/hooks/useAppSelector";
+
 import {
   Container,
   ContainerScreen,
@@ -24,9 +26,10 @@ import { Favorite } from "../../components/Favorite";
 import CabbageImg from "../../assets/cabbage.png";
 import ProfilePicture from "../../assets/profile-picture.png";
 import { useNavigation } from "@react-navigation/native";
-import { Alert, TouchableOpacity } from "react-native";
 
 export const Profile = () => {
+  const user = useAppSelector((state) => state.user);
+
   const bottomSheetRef = useRef<BottomSheet>(null);
   const navigation = useNavigation();
 
@@ -51,8 +54,8 @@ export const Profile = () => {
           <MemberType />
           <Header>
             <InfoContainer>
-              <Name>Daniel Sebastian</Name>
-              <Email>daniel.sebastian@yourdomain.com</Email>
+              <Name>{user.name}</Name>
+              <Email>{user.email}</Email>
             </InfoContainer>
             <IconsContainer>
               <Icons icon={EditSvg} />
@@ -70,12 +73,14 @@ export const Profile = () => {
             product="Fresh Lettuce"
             store="Lovy Grocery"
             price={8}
+            onPress={goToFavorites}
           />
           <Favorite
             image={CabbageImg}
             product="Fresh Lettuce"
             store="Lovy Grocery"
             price={8}
+            onPress={goToFavorites}
           />
         </Container>
       </BottomSheet>

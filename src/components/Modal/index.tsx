@@ -17,21 +17,30 @@ import {
 import EmptyHeartSvg from "../../assets/empty-heart.svg";
 import { SvgProps } from "react-native-svg";
 import React from "react";
+import { Alert } from "react-native";
 
 type Props = {
   title: string;
   cancelText: string;
   doItText: string;
   icon: React.FC<SvgProps>;
+  onCancelPress: () => void;
+  onConfirmedPress: () => void;
 };
 
 export const Modal = React.forwardRef(
-  ({ title, cancelText, doItText, icon: Icon }: Props, ref) => {
+  (
+    {
+      title,
+      cancelText,
+      doItText,
+      icon: Icon,
+      onCancelPress,
+      onConfirmedPress,
+    }: Props,
+    ref
+  ) => {
     const bottomSheetRef = useRef<BottomSheet>(null);
-
-    if (bottomSheetRef.current) {
-      bottomSheetRef.current.expand();
-    }
 
     return (
       <BottomSheet
@@ -46,10 +55,10 @@ export const Modal = React.forwardRef(
           <Icon width={36} height={36} />
           <Text>{title}</Text>
           <Buttons>
-            <Cancel>
+            <Cancel onPress={onCancelPress}>
               <LabelCancel>{cancelText}</LabelCancel>
             </Cancel>
-            <Yes>
+            <Yes onPress={onConfirmedPress}>
               <LabelYes>{doItText}</LabelYes>
             </Yes>
           </Buttons>

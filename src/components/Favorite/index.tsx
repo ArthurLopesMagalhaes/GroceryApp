@@ -10,16 +10,16 @@ import {
 } from "./styles";
 
 import HeartSvg from "../../assets/heart_favorite.svg";
-import { TouchableOpacity, TouchableOpacityProps } from "react-native";
 
-type Props = TouchableOpacityProps & {
+type Props = {
   image: any;
   product: string;
   store: string;
   price: number;
+  onPress: () => void;
 };
 
-export const Favorite = ({ image, price, product, store, ...rest }: Props) => {
+export const Favorite = ({ image, price, product, store, onPress }: Props) => {
   return (
     <Container>
       <ImgContainer>
@@ -30,8 +30,7 @@ export const Favorite = ({ image, price, product, store, ...rest }: Props) => {
         <Store>{store}</Store>
         <Price>${price}</Price>
       </InfoContainer>
-
-      <HeartButton {...rest}>
+      <HeartButton onPress={onPress}>
         <HeartSvg />
       </HeartButton>
     </Container>

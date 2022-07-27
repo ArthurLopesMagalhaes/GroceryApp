@@ -54,11 +54,11 @@ export const Home = () => {
 
   const goToFavorites = () => {
     // null;
-    navigation.reset({
-      routes: [
-        { name: "ProfileStackScreens", params: { screen: "Favorites" } },
-      ],
-    });
+    // navigation.reset({
+    //   routes: [
+    //     { name: "ProfileStackScreens", params: { screen: "Favorites" } },
+    //   ],
+    // });
     // navigation.navigate("ProfileStackScreens", { screen: "Favorites" });
   };
   const goToPopularStore = () => {
@@ -81,7 +81,7 @@ export const Home = () => {
         <NavContainer>
           <Left>
             <Logo source={LogoImg} />
-            <Greeting>Hello, {user.name}!</Greeting>
+            <Greeting>Hello, {user.name.split(" ")[0]}!</Greeting>
           </Left>
           <IconsContainer>
             <MiniIcon icon={BellSvg} />

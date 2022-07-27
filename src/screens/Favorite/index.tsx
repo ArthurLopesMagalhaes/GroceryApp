@@ -1,4 +1,4 @@
-import { FlatList, ScrollView } from "react-native";
+import { Alert, FlatList, ScrollView } from "react-native";
 import { Background } from "../../components/Background";
 import { Container } from "../../components/Container";
 import { Favorite } from "../../components/Favorite";
@@ -18,7 +18,7 @@ import {
 import BottomSheet, { BottomSheetBackdrop } from "@gorhom/bottom-sheet";
 
 import CabbageImg from "../../assets/cabbage.png";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 import EmptyHeartSvg from "../../assets/empty-heart.svg";
 import { useNavigation } from "@react-navigation/native";
@@ -68,7 +68,7 @@ const stores = [
     image: CabbageImg,
   },
   {
-    id: "7",
+    id: "7gfgs",
     product: "Lovy Grocery",
     store: "Lovy Grocery",
     price: 81,
@@ -78,13 +78,16 @@ const stores = [
 
 export const Favorites = () => {
   const navigation = useNavigation();
+  const [currentItemId, setCurrentItemId] = useState("");
 
   const bottomSheetRef = useRef<BottomSheet>(null);
-  const OpenModal = () => {
-    navigation.setOptions({ tabBarStyle: { display: "none" } });
+  const openModal = (id: string) => {
+    setCurrentItemId(id);
     bottomSheetRef.current?.expand();
   };
-
+  const closeModal = () => {
+    bottomSheetRef.current?.close();
+  };
   return (
     <Background>
       <Container>
@@ -102,7 +105,7 @@ export const Favorites = () => {
               product={item.product}
               store={item.store}
               price={item.price}
-              onPress={OpenModal}
+              onPress={() => openModal(item.id)}
             />
           )}
         />
@@ -113,6 +116,8 @@ export const Favorites = () => {
         doItText="Yes, remove"
         icon={EmptyHeartSvg}
         ref={bottomSheetRef}
+        onCancelPress={closeModal}
+        onConfirmedPress={() => Alert.alert(currentItemId)}
       />
     </Background>
   );

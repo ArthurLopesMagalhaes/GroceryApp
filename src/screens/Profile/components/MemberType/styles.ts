@@ -13,5 +13,5 @@ export const Container = styled.View`
 export const Label = styled.Text`
   font-family: ${theme.fonts.regular};
   font-size: 14px;
-  color: ${theme.colors.black};
+  color: ${theme.colors.secondary};
 `;
