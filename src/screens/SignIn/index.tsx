@@ -1,10 +1,12 @@
 import { useState } from "react";
+import * as AuthSession from "expo-auth-session";
+import { useAppDispatch } from "../../redux/hooks/useAppSelector";
+import { setAvatar, setEmail, setName } from "../../redux/reducers/userReducer";
 import { useNavigation } from "@react-navigation/native";
 import { KeyboardAvoidingView, Platform, ScrollView, View } from "react-native";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as AuthSession from "expo-auth-session";
 
 import { Background } from "../../components/Background";
 import { RememberMe } from "../../components/RememberMe";
@@ -27,11 +29,9 @@ import FacebookSvg from "../../assets/facebook.svg";
 import GoogleSvg from "../../assets/google.svg";
 import EyeClosedSvg from "../../assets/closed-eye.svg";
 import EyeOpenedSvg from "../../assets/opened-eye.svg";
-import {
-  useAppDispatch,
-  useAppSelector,
-} from "../../redux/hooks/useAppSelector";
-import { setAvatar, setEmail, setName } from "../../redux/reducers/userReducer";
+
+const { CLIENT_ID } = process.env;
+const { REDIRECT_URI } = process.env;
 
 type FormData = {
   email: string;
@@ -57,13 +57,12 @@ const schema = yup.object().shape({
 });
 
 export const SignIn = () => {
-  const user = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
-
   const navigation = useNavigation();
   const { control, handleSubmit } = useForm<FormData>({
     resolver: yupResolver(schema),
   });
+
   const [hidePassword, setHidePassword] = useState(true);
 
   const doSignIn = () => {
@@ -83,9 +82,6 @@ export const SignIn = () => {
 
   async function handleGoogleSignIn() {
     try {
-      const CLIENT_ID =
-        "986851395794-snrjsu5bgr8qums0pocqr48c5cnsa6e4.apps.googleusercontent.com";
-      const REDIRECT_URI = "https://auth.expo.io/@xarthurlm/groceryapp";
       const SCOPE = encodeURI("profile email");
       const RESPONSE_TYPE = "token";
 
@@ -105,6 +101,13 @@ export const SignIn = () => {
         dispatch(setEmail(responseData.email));
         navigation.navigate("TabRoutes");
       }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function handleFacebookSignIn() {
+    try {
     } catch (error) {
       console.log(error);
     }
@@ -146,7 +149,7 @@ export const SignIn = () => {
                 <SocialLoginButton
                   icon={FacebookSvg}
                   label="Facebook"
-                  onPress={handleGoogleSignIn}
+                  onPress={handleFacebookSignIn}
                 />
                 <SocialLoginButton
                   icon={GoogleSvg}
