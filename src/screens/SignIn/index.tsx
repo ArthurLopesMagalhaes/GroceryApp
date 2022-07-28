@@ -1,9 +1,16 @@
 import { useState } from "react";
 import * as AuthSession from "expo-auth-session";
+import { useAppSelector } from "../../redux/hooks/useAppSelector";
 import { useAppDispatch } from "../../redux/hooks/useAppSelector";
 import { setAvatar, setEmail, setName } from "../../redux/reducers/userReducer";
 import { useNavigation } from "@react-navigation/native";
-import { KeyboardAvoidingView, Platform, ScrollView, View } from "react-native";
+import {
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  Text,
+  View,
+} from "react-native";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -29,6 +36,7 @@ import FacebookSvg from "../../assets/facebook.svg";
 import GoogleSvg from "../../assets/google.svg";
 import EyeClosedSvg from "../../assets/closed-eye.svg";
 import EyeOpenedSvg from "../../assets/opened-eye.svg";
+import { $CombinedState } from "@reduxjs/toolkit";
 
 const { CLIENT_ID } = process.env;
 const { REDIRECT_URI } = process.env;
@@ -57,6 +65,7 @@ const schema = yup.object().shape({
 });
 
 export const SignIn = () => {
+  const user = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
   const navigation = useNavigation();
   const { control, handleSubmit } = useForm<FormData>({
@@ -113,6 +122,8 @@ export const SignIn = () => {
     }
   }
 
+  console.log(user);
+
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -149,7 +160,7 @@ export const SignIn = () => {
                 <SocialLoginButton
                   icon={FacebookSvg}
                   label="Facebook"
-                  onPress={handleFacebookSignIn}
+                  onPress={handleGoogleSignIn}
                 />
                 <SocialLoginButton
                   icon={GoogleSvg}

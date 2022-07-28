@@ -9,7 +9,8 @@ import { StatusBar } from "react-native";
 import { gestureHandlerRootHOC } from "react-native-gesture-handler";
 import { MainRoutes } from "./src/routes";
 import { Preload } from "./src/screens/Preload";
-import { store } from "./src/redux/store";
+import { persistor, store } from "./src/redux/store";
+import { PersistGate } from "redux-persist/integration/react";
 
 function App() {
   const [fontsLoaded] = useFonts({
@@ -23,13 +24,15 @@ function App() {
 
   return (
     <Provider store={store}>
-      <StatusBar
-        animated={true}
-        backgroundColor="transparent"
-        barStyle="dark-content"
-        translucent
-      />
-      <MainRoutes />
+      <PersistGate loading={<Preload />} persistor={persistor}>
+        <StatusBar
+          animated={true}
+          backgroundColor="transparent"
+          barStyle="dark-content"
+          translucent
+        />
+        <MainRoutes />
+      </PersistGate>
     </Provider>
   );
 }
