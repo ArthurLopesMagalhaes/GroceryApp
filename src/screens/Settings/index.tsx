@@ -17,14 +17,23 @@ import { useNavigation } from "@react-navigation/native";
 import { Modal } from "../../components/Modal";
 import { useRef } from "react";
 import BottomSheet from "@gorhom/bottom-sheet";
-import { useAppSelector } from "../../redux/hooks/useAppSelector";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "../../redux/hooks/useAppSelector";
+import { setEmail } from "../../redux/reducers/userReducer";
 
 export const Settings = () => {
+  const user = useAppSelector((state) => state.user);
   const notification = useAppSelector((state) => state.notification);
+  const dispatch = useAppDispatch();
   const navigation = useNavigation();
   const bottomSheetRef = useRef<BottomSheet>(null);
   const logoutModal = () => {
     bottomSheetRef.current?.expand();
+  };
+  const closeModal = () => {
+    bottomSheetRef.current?.close();
   };
 
   return (
@@ -61,6 +70,8 @@ export const Settings = () => {
         doItText="Yes, logout"
         icon={LogoutSvg}
         ref={bottomSheetRef}
+        onCancelPress={closeModal}
+        onConfirmedPress={() => dispatch(setEmail(""))}
       />
     </Background>
   );

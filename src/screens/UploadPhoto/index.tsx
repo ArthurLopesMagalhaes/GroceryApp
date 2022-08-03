@@ -1,6 +1,7 @@
 import { useState } from "react";
 import * as ImagePicker from "expo-image-picker";
 import { useNavigation } from "@react-navigation/native";
+import qs from "qs";
 
 import { Background } from "../../components/Background";
 import { Button } from "../../components/Button";
@@ -20,13 +21,37 @@ import {
   Legend,
   ProfilePhotoContainer,
 } from "./styles";
+import { api } from "../../services/api";
 
 export const UploadPhoto = () => {
   const navigation = useNavigation();
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState<string>("");
+
+  const uploadImg = async () => {
+    try {
+      const response = await api.post(
+        "/signup",
+        qs.stringify({
+          email: "araaaaa@gmail.coma",
+          password: "12345678",
+          full_name: "Arthur Lopes",
+          nickname: "xArthurLM",
+          phone_number: "53346363",
+          gender: "male",
+          birth_date: "2022-07-08",
+          profile_photo: "string",
+          avatar: image,
+        })
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const goToSetLocation = () => {
-    navigation.navigate("SetLocation");
+    // navigation.navigate("SetLocation");
+    uploadImg();
   };
 
   const pickImage = async () => {
@@ -35,6 +60,7 @@ export const UploadPhoto = () => {
       allowsEditing: true,
       aspect: [3, 3],
       quality: 1,
+      base64: true,
     });
 
     if (!result.cancelled) {
@@ -51,6 +77,7 @@ export const UploadPhoto = () => {
 
     if (!result.cancelled) {
       setImage(result.uri);
+      console.log(image);
     }
   };
 

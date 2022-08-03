@@ -4,17 +4,7 @@ import { Container } from "../../components/Container";
 import { Favorite } from "../../components/Favorite";
 import { Header } from "../../components/Header";
 import { InputMenu } from "../../components/InputMenu";
-import {
-  BottomSheetContent,
-  Buttons,
-  Cancel,
-  CardsContainer,
-  LabelCancel,
-  LabelYes,
-  styles,
-  Text,
-  Yes,
-} from "./styles";
+
 import BottomSheet, { BottomSheetBackdrop } from "@gorhom/bottom-sheet";
 
 import CabbageImg from "../../assets/cabbage.png";

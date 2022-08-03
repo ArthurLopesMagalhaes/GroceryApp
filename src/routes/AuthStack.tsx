@@ -1,4 +1,5 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { Congrats } from "../screens/Congrats";
 import { FillBio } from "../screens/FillBio";
 import { ForgotPassword } from "../screens/ForgotPassword";
 import { PaymentMethod } from "../screens/PaymentMethod";
@@ -23,6 +24,7 @@ export const AuthStack = () => {
       <Stack.Screen name="PaymentMethod" component={PaymentMethod} />
       <Stack.Screen name="UploadPhoto" component={UploadPhoto} />
       <Stack.Screen name="SetLocation" component={SetLocation} />
+      <Stack.Screen name="Congrats" component={Congrats} />
       <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
     </Stack.Navigator>
   );

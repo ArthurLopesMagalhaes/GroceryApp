@@ -5,7 +5,6 @@ import { TouchableOpacity } from "react-native";
 
 type Props = {
   label: string;
-  // bg: string;
   onPress: () => void;
 };
 

@@ -1,4 +1,4 @@
-import { FlatList } from "react-native";
+import { FlatList, Text } from "react-native";
 
 import { Container } from "../../components/Container";
 import { Background } from "../../components/Background";
@@ -25,6 +25,7 @@ import LovyGrocerySvg from "../../assets/lovy-grocery.svg";
 import { CustomTabBar } from "../../components/CustomTabBar";
 import { useNavigation } from "@react-navigation/native";
 import { useAppSelector } from "../../redux/hooks/useAppSelector";
+import { api } from "../../services/api";
 
 const stores: StoreProps[] = [
   {
@@ -75,6 +76,11 @@ export const Home = () => {
     navigation.navigate("GroceryDetails", { groceryId: id });
   };
 
+  async function test() {
+    const response = await api.get("/ping");
+    console.log(response);
+  }
+
   return (
     <Background>
       <Container>
@@ -93,7 +99,7 @@ export const Home = () => {
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{ paddingBottom: 100 }}
         >
-          <SpecialDealCard />
+          <SpecialDealCard onPress={test} />
           <PopularStuff
             title="Popular Store"
             subtitle="See all"

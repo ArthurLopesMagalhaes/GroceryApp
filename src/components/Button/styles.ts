@@ -8,7 +8,9 @@ export const Label = styled.Text`
   color: ${theme.colors.white};
 `;
 
-export const ButtonContainer = styled.TouchableOpacity``;
+export const ButtonContainer = styled.TouchableOpacity`
+  width: 100%;
+`;
 
 export const styles = StyleSheet.create({
   button: {

@@ -17,14 +17,13 @@ const { Navigator, Screen } = createNativeStackNavigator();
 export const AppRoutes = () => {
   return (
     <Navigator
-      initialRouteName="SignIn"
+      initialRouteName="TabRoutes"
       screenOptions={{
         headerShown: false,
       }}
     >
       <Screen name="AuthStack" component={AuthStack} />
       <Screen name="TabRoutes" component={TabRoutes} />
-      <Screen name="Congrats" component={Congrats} />
       <Screen name="OrderDetails" component={OrderDetails} />
       <Screen name="Settings" component={Settings} />
       <Screen name="FindGrocery" component={FindGrocery} />

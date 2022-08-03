@@ -8,9 +8,9 @@ interface UserState {
 }
 
 const initialState = {
-  name: "Arthur Lopes",
-  age: 18,
-  email: "arthurlopes462@gmail.com",
+  name: "",
+  age: 0,
+  email: "",
   avatar: "https://github.com/ArthurLopesMagalhaes.png",
 } as UserState;
 
