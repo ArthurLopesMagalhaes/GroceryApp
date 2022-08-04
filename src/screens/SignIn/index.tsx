@@ -36,7 +36,7 @@ import FacebookSvg from "../../assets/facebook.svg";
 import GoogleSvg from "../../assets/google.svg";
 import EyeClosedSvg from "../../assets/closed-eye.svg";
 import EyeOpenedSvg from "../../assets/opened-eye.svg";
-import { $CombinedState } from "@reduxjs/toolkit";
+import { api } from "../../services/api";
 
 const { CLIENT_ID } = process.env;
 const { REDIRECT_URI } = process.env;
@@ -74,12 +74,14 @@ export const SignIn = () => {
 
   const [hidePassword, setHidePassword] = useState(true);
 
-  const doSignIn = () => {
-    navigation.navigate("SignUp");
+  const handleSignIn = async (data: FormData) => {
+    console.log(data);
+    const response = await api.post("/signin", data);
+    console.log(response.data);
   };
 
   const goToSignUp = () => {
-    navigation.navigate("TabRoutes");
+    navigation.navigate("SignUp");
   };
   const goToForgotPassword = () => {
     navigation.navigate("ForgotPassword");
@@ -153,7 +155,7 @@ export const SignIn = () => {
               />
               <RememberMe />
 
-              <Button label="Sign in" onPress={handleSubmit(doSignIn)} />
+              <Button label="Sign in" onPress={handleSubmit(handleSignIn)} />
               <Link label="Forgot the Password?" onPress={goToForgotPassword} />
               <SimpleText>or continue with</SimpleText>
               <SocialLoginContainer>

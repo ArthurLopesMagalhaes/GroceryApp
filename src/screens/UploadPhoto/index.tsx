@@ -1,7 +1,6 @@
 import { useState } from "react";
 import * as ImagePicker from "expo-image-picker";
 import { useNavigation } from "@react-navigation/native";
-import qs from "qs";
 
 import { Background } from "../../components/Background";
 import { Button } from "../../components/Button";
@@ -23,26 +22,41 @@ import {
 } from "./styles";
 import { api } from "../../services/api";
 
+type DataProps = {
+  birth_date: string;
+  email: string;
+  full_name: string;
+  gender: string;
+  nickname: string;
+  password: string;
+  phone_number: string;
+  profile_photo: string;
+};
+
 export const UploadPhoto = () => {
   const navigation = useNavigation();
   const [image, setImage] = useState<string>("");
+  const formData = new FormData();
+
+  formData.append("birth_date", "2022-07-08");
+  formData.append("email", "juliaaaa@gmail.coma");
+  formData.append("full_name", "Arthur Lopes");
+  formData.append("gender", "male");
+  formData.append("nickname", "xArthurLM");
+  formData.append("password", "12345678");
+  formData.append("phone_number", "53346363");
+  formData.append("avatar", {
+    uri: image,
+    name: "image.jpg",
+    type: "image/jpeg",
+  });
 
   const uploadImg = async () => {
     try {
-      const response = await api.post(
-        "/signup",
-        qs.stringify({
-          email: "araaaaa@gmail.coma",
-          password: "12345678",
-          full_name: "Arthur Lopes",
-          nickname: "xArthurLM",
-          phone_number: "53346363",
-          gender: "male",
-          birth_date: "2022-07-08",
-          profile_photo: "string",
-          avatar: image,
-        })
-      );
+      const response = await api.post("/signup", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+
       console.log(response.data);
     } catch (error) {
       console.log(error);
@@ -50,7 +64,6 @@ export const UploadPhoto = () => {
   };
 
   const goToSetLocation = () => {
-    // navigation.navigate("SetLocation");
     uploadImg();
   };
 
