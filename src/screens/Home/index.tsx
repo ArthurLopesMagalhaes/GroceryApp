@@ -1,4 +1,4 @@
-import { FlatList, Text } from "react-native";
+import { ActivityIndicator, FlatList, Text } from "react-native";
 
 import { Container } from "../../components/Container";
 import { Background } from "../../components/Background";
@@ -26,30 +26,11 @@ import { CustomTabBar } from "../../components/CustomTabBar";
 import { useNavigation } from "@react-navigation/native";
 import { useAppSelector } from "../../redux/hooks/useAppSelector";
 import { api } from "../../services/api";
-
-const stores: StoreProps[] = [
-  {
-    id: "1",
-    name: "Lovy Grocery",
-    time: 10,
-    icon: LovyGrocerySvg,
-  },
-  {
-    id: "2",
-    name: "Haty Grocery",
-    time: 14,
-    icon: LovyGrocerySvg,
-  },
-  {
-    id: "3",
-    name: "Haty Grocery",
-    time: 14,
-    icon: LovyGrocerySvg,
-  },
-];
+import { useEffect, useState } from "react";
 
 export const Home = () => {
   const user = useAppSelector((state) => state.user);
+  const [stores, setStores] = useState<StoreProps[]>([]);
 
   const navigation = useNavigation();
 
@@ -78,8 +59,16 @@ export const Home = () => {
 
   async function test() {
     const response = await api.get("/ping");
-    console.log(response);
+    console.log(response.data);
   }
+
+  useEffect(() => {
+    const fetchStores = async () => {
+      const response = await api.get("/stores");
+      setStores(response.data.stores);
+    };
+    fetchStores();
+  }, []);
 
   return (
     <Background>
@@ -111,15 +100,15 @@ export const Home = () => {
             renderItem={({ item }) => (
               <GroceryCard
                 id={item.id}
-                icon={item.icon}
+                icon={LovyGrocerySvg}
                 name={item.name}
-                time={item.time}
                 onPress={() => goToStoreScreen(item.id)}
               />
             )}
             keyExtractor={(item) => item.id}
             horizontal
             showsHorizontalScrollIndicator={false}
+            ListEmptyComponent={<ActivityIndicator />}
           />
 
           <PopularStuff
@@ -132,15 +121,15 @@ export const Home = () => {
             renderItem={({ item }) => (
               <GroceryCard
                 id={item.id}
-                icon={item.icon}
+                icon={LovyGrocerySvg}
                 name={item.name}
-                time={item.time}
                 onPress={() => goToGroceryScreen(item.id)}
               />
             )}
             keyExtractor={(item) => item.id}
             horizontal
             showsHorizontalScrollIndicator={false}
+            ListEmptyComponent={<ActivityIndicator />}
           />
         </ScrollView>
       </Container>

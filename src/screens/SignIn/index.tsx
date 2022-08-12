@@ -2,15 +2,14 @@ import { useState } from "react";
 import * as AuthSession from "expo-auth-session";
 import { useAppSelector } from "../../redux/hooks/useAppSelector";
 import { useAppDispatch } from "../../redux/hooks/useAppSelector";
-import { setAvatar, setEmail, setName } from "../../redux/reducers/userReducer";
-import { useNavigation } from "@react-navigation/native";
 import {
-  KeyboardAvoidingView,
-  Platform,
-  ScrollView,
-  Text,
-  View,
-} from "react-native";
+  setAvatar,
+  setEmail,
+  setName,
+  setToken,
+} from "../../redux/reducers/userReducer";
+import { useNavigation } from "@react-navigation/native";
+import { KeyboardAvoidingView, Platform, ScrollView, View } from "react-native";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -75,9 +74,14 @@ export const SignIn = () => {
   const [hidePassword, setHidePassword] = useState(true);
 
   const handleSignIn = async (data: FormData) => {
-    console.log(data);
     const response = await api.post("/signin", data);
     console.log(response.data);
+    if (response.data.error) return;
+    console.log(response.data);
+    dispatch(setToken(response.data.user.token));
+    dispatch(setEmail(response.data.user.email));
+    dispatch(setName(response.data.user.full_name));
+    dispatch(setAvatar(response.data.user.profile_photo));
   };
 
   const goToSignUp = () => {
@@ -123,8 +127,6 @@ export const SignIn = () => {
       console.log(error);
     }
   }
-
-  console.log(user);
 
   return (
     <KeyboardAvoidingView

@@ -21,7 +21,13 @@ import {
   useAppDispatch,
   useAppSelector,
 } from "../../redux/hooks/useAppSelector";
-import { setEmail } from "../../redux/reducers/userReducer";
+import {
+  setAge,
+  setAvatar,
+  setEmail,
+  setName,
+  setToken,
+} from "../../redux/reducers/userReducer";
 
 export const Settings = () => {
   const user = useAppSelector((state) => state.user);
@@ -35,12 +41,23 @@ export const Settings = () => {
   const closeModal = () => {
     bottomSheetRef.current?.close();
   };
+  const handleLogout = () => {
+    dispatch(setEmail(""));
+    dispatch(setName(""));
+    dispatch(setAge(0));
+    dispatch(setAvatar(""));
+    dispatch(setToken(""));
+    navigation.navigate("SignIn");
+  };
 
   return (
     <Background>
       <Container>
         <Header label="Settings" onPress={() => navigation.goBack()} />
-        <ScrollView showsVerticalScrollIndicator={false}>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{ paddingBottom: 100 }}
+        >
           <SettingsItem label="Account" icon={ProfileSvg} />
           <SettingsItem
             label="Notification"
@@ -71,7 +88,7 @@ export const Settings = () => {
         icon={LogoutSvg}
         ref={bottomSheetRef}
         onCancelPress={closeModal}
-        onConfirmedPress={() => dispatch(setEmail(""))}
+        onConfirmedPress={handleLogout}
       />
     </Background>
   );

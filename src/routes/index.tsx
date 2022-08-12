@@ -8,7 +8,7 @@ export const MainRoutes = () => {
 
   return (
     <NavigationContainer>
-      {user.email ? <AppRoutes /> : <AuthStack />}
+      {user.token ? <AppRoutes /> : <AuthStack />}
     </NavigationContainer>
   );
 };

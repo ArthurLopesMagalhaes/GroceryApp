@@ -7,6 +7,7 @@ import { SetLocation } from "../screens/SetLocation";
 import { SignIn } from "../screens/SignIn";
 import { SignUp } from "../screens/SignUp";
 import { UploadPhoto } from "../screens/UploadPhoto";
+import { TabRoutes } from "./tab.routes";
 
 const Stack = createNativeStackNavigator();
 
@@ -26,6 +27,7 @@ export const AuthStack = () => {
       <Stack.Screen name="SetLocation" component={SetLocation} />
       <Stack.Screen name="Congrats" component={Congrats} />
       <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
+      <Stack.Screen name="TabRoutes" component={TabRoutes} />
     </Stack.Navigator>
   );
 };

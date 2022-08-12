@@ -22,55 +22,55 @@ export const PopularStore = () => {
     {
       id: "1",
       name: "Lovy Grocery",
-      time: 10,
+
       icon: LovyGrocerySvg,
     },
     {
       id: "2",
       name: "Haty Grocery",
-      time: 14,
+
       icon: LovyGrocerySvg,
     },
     {
       id: "3",
       name: "Haty Grocery",
-      time: 14,
+
       icon: LovyGrocerySvg,
     },
     {
       id: "3",
       name: "Haty Grocery",
-      time: 14,
+
       icon: LovyGrocerySvg,
     },
     {
       id: "3",
       name: "Haty Grocery",
-      time: 14,
+
       icon: LovyGrocerySvg,
     },
     {
       id: "3",
       name: "Haty Grocery",
-      time: 14,
+
       icon: LovyGrocerySvg,
     },
     {
       id: "3",
       name: "Haty Grocery",
-      time: 14,
+
       icon: LovyGrocerySvg,
     },
     {
       id: "3",
       name: "Haty Grocery",
-      time: 14,
+
       icon: LovyGrocerySvg,
     },
     {
       id: "3",
       name: "Haty Grocery",
-      time: 14,
+
       icon: LovyGrocerySvg,
     },
   ];
@@ -91,7 +91,6 @@ export const PopularStore = () => {
                 id={item.id}
                 icon={item.icon}
                 name={item.name}
-                time={item.time}
                 onPress={() => goToStoreScreen(item.id)}
               />
             ))}

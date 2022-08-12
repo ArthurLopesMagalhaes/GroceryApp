@@ -25,7 +25,6 @@ export const AppRoutes = () => {
       <Screen name="AuthStack" component={AuthStack} />
       <Screen name="TabRoutes" component={TabRoutes} />
       <Screen name="OrderDetails" component={OrderDetails} />
-      <Screen name="Settings" component={Settings} />
       <Screen name="FindGrocery" component={FindGrocery} />
       <Screen name="Notification" component={Notification} />
       <Screen name="Others" component={Others} />
