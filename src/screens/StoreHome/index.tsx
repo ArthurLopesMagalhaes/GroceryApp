@@ -16,7 +16,7 @@ import BottomSheet, { BottomSheetFlatList } from "@gorhom/bottom-sheet";
 import GroceryImg from "../../assets/grocery-photo.png";
 import { useEffect, useRef, useState } from "react";
 import { MemberType } from "../Profile/components/MemberType";
-import { ActivityIndicator, StatusBar, View } from "react-native";
+import { ActivityIndicator, StatusBar, Text, View } from "react-native";
 import { GroceryTag } from "./components/GroceryTag";
 import { Icons } from "../../components/Icons";
 
@@ -70,7 +70,7 @@ export const StoreHome = () => {
       const response = await api.get(`/store/${storeId}`);
       setStore(response.data.store);
       setLoadingInfos(false);
-      console.log(store.testimonials);
+      console.log("store.testimonials", store.testimonials);
     };
     fetchStore();
   }, [storeId]);
@@ -128,7 +128,11 @@ export const StoreHome = () => {
                 subtitle="See all"
                 onPress={goToTestimonials}
               />
-              <TestimonialCard data={store.testimonials[0]} />
+              {store.testimonials.length > 0 ? (
+                <TestimonialCard data={store.testimonials[0]} />
+              ) : (
+                <Text>No testimonials yet</Text>
+              )}
             </>
           )}
         </ModalContainer>

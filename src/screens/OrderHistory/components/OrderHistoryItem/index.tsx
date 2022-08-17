@@ -10,14 +10,19 @@ import {
   Store,
 } from "./styles";
 
-import AlfaceImg from "../../../../assets/alface.png";
 import { theme } from "../../../../global/theme";
 
 export type OrderHistoryItemType = {
-  store: string;
-  product: string;
-  price: number;
+  id: number;
   status: "completed" | "process" | "canceled";
+  price: number;
+  products: {
+    name: string;
+    product_photo: string;
+    stores: {
+      name: string;
+    };
+  }[];
 };
 
 type Props = {
@@ -35,11 +40,14 @@ export const OrderHistoryItem = ({ data }: Props) => {
   return (
     <Container>
       <ImgContainer>
-        <Image source={AlfaceImg} resizeMode="cover" />
+        <Image
+          source={{ uri: data.products[0].product_photo }}
+          resizeMode="cover"
+        />
       </ImgContainer>
       <InfoContainer>
-        <Product>{data.product}</Product>
-        <Store>{data.store}</Store>
+        <Product>{data.products[0].name}</Product>
+        <Store>{data.products[0].stores.name}</Store>
         <Price>${data.price}</Price>
       </InfoContainer>
       <OrderStatus bg={orderBackground}>

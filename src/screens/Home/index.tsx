@@ -31,6 +31,7 @@ import { useEffect, useState } from "react";
 export const Home = () => {
   const user = useAppSelector((state) => state.user);
   const [stores, setStores] = useState<StoreProps[]>([]);
+  const [products, setProducts] = useState<StoreProps[]>([]);
 
   const navigation = useNavigation();
 
@@ -67,7 +68,13 @@ export const Home = () => {
       const response = await api.get("/stores");
       setStores(response.data.stores);
     };
+    const fetchProducts = async () => {
+      const response = await api.get(`/store/${1}/products`);
+      setProducts(response.data.products);
+    };
+
     fetchStores();
+    fetchProducts();
   }, []);
 
   return (
@@ -117,7 +124,7 @@ export const Home = () => {
             onPress={goToPopularGrocery}
           />
           <FlatList
-            data={stores}
+            data={products}
             renderItem={({ item }) => (
               <GroceryCard
                 id={item.id}

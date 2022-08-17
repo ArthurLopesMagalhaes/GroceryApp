@@ -25,7 +25,6 @@ export const Testimonials = () => {
   useEffect(() => {
     const getTestimonials = async () => {
       const response = await api.get(`/testimonials/${storeId}`);
-      console.log(response.data);
       setTestimonials(response.data.testimonials);
     };
     getTestimonials();
