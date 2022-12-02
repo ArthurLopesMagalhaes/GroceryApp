@@ -1,5 +1,4 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import notificationPreferencesReducer from "./reducers/notificationPreferencesReducer";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {
   FLUSH,
@@ -13,12 +12,13 @@ import {
 } from "redux-persist";
 
 import userReducer from "./reducers/userReducer";
-import chartReducer from "./reducers/chartReducer";
+import notificationPreferencesReducer from "./reducers/notificationPreferencesReducer";
+import cartReducer from "./reducers/cartReducer";
 
 const rootReducer = combineReducers({
   user: userReducer,
   notification: notificationPreferencesReducer,
-  cart: chartReducer,
+  cart: cartReducer,
 });
 
 const persistConfig = {

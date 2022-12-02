@@ -32,6 +32,11 @@ import { ProductCard } from "../StoreHome/components/ProductCard";
 import { GroceryTag } from "../StoreHome/components/GroceryTag";
 import { Button } from "../../components/Button";
 import { api } from "../../services/api";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "../../redux/hooks/useAppSelector";
+import { setProduct } from "../../redux/reducers/cartReducer";
 
 type RouteParams = {
   groceryId: string;
@@ -46,10 +51,13 @@ type Product = {
 };
 
 export const GroceryDetails = () => {
+  const cart = useAppSelector((state) => state.cart);
+  const dispatch = useAppDispatch();
+
   const navigation = useNavigation();
   const route = useRoute();
   const [loadingInfos, setLoadingInfos] = useState(true);
-  const [product, setProduct] = useState<Product>({} as Product);
+  const [grocery, setGrocery] = useState<Product>({} as Product);
 
   const bottomSheetRef = useRef<BottomSheet>(null);
   const { groceryId } = route.params as RouteParams;
@@ -61,11 +69,15 @@ export const GroceryDetails = () => {
     navigation.navigate("Testimonials", { productId: "adsdas" });
   };
 
+  const addItemToCart = () => {
+    dispatch(setProduct(grocery.id));
+  };
+
   useEffect(() => {
     // search store in DB by id
     const fetchStore = async () => {
       const response = await api.get(`/product/${groceryId}`);
-      setProduct(response.data.product);
+      setGrocery(response.data.product);
       setLoadingInfos(false);
     };
     fetchStore();
@@ -95,14 +107,14 @@ export const GroceryDetails = () => {
                   </IconsContainer>
                 </TagsContainer>
                 <InfoContainer>
-                  <GroceryName>{product.name}</GroceryName>
+                  <GroceryName>{grocery.name}</GroceryName>
                   <DistanceRatingContainer>
                     <Icons icon={MarkerSvg} />
                     <IconText>3 km</IconText>
                     <Icons icon={HalfStartSvg} />
-                    <IconText>{product.rating} rating</IconText>
+                    <IconText>{grocery.rating} rating</IconText>
                   </DistanceRatingContainer>
-                  <GroceryDescription>{product.description}</GroceryDescription>
+                  <GroceryDescription>{grocery.description}</GroceryDescription>
                 </InfoContainer>
 
                 <PopularStuff
@@ -117,7 +129,7 @@ export const GroceryDetails = () => {
         </BottomSheet>
       </Container>
       <BoxButton>
-        <Button label="Add to chart" onPress={() => null} />
+        <Button label="Add to cart" onPress={() => addItemToCart} />
       </BoxButton>
     </>
   );

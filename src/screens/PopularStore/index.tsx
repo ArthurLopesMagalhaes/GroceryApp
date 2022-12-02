@@ -1,4 +1,4 @@
-import { ScrollView } from "react-native";
+import { ActivityIndicator, ScrollView } from "react-native";
 import { Background } from "../../components/Background";
 import { Header } from "../../components/Header";
 
@@ -10,13 +10,18 @@ import { StoreProps } from "../Home/components/GroceryCard";
 
 import LovyGrocerySvg from "../../assets/lovy-grocery.svg";
 import { CardsContainer } from "./styles";
+import { useEffect, useState } from "react";
+import { api } from "../../services/api";
 
 export const PopularStore = () => {
+  const [loadingStores, setLoadingStores] = useState(true);
   const navigation = useNavigation();
 
   const goToStoreScreen = (id: string) => {
     navigation.navigate("StoreHome", { storeId: id });
   };
+
+  const [storess, setStores] = useState<StoreProps[]>([]);
 
   const stores: StoreProps[] = [
     {
@@ -75,6 +80,16 @@ export const PopularStore = () => {
     },
   ];
 
+  useEffect(() => {
+    const fetchStores = async () => {
+      const response = await api.get("/stores");
+      setStores(response.data.stores);
+      setLoadingStores(false);
+      console.log(response.data);
+    };
+    fetchStores();
+  }, []);
+
   return (
     <Background>
       <Container>
@@ -84,17 +99,21 @@ export const PopularStore = () => {
           showsVerticalScrollIndicator={false}
           style={{ marginTop: 10 }}
         >
-          <CardsContainer>
-            {stores.map((item, index) => (
-              <StoreCard
-                key={index}
-                id={item.id}
-                icon={item.icon}
-                name={item.name}
-                onPress={() => goToStoreScreen(item.id)}
-              />
-            ))}
-          </CardsContainer>
+          {loadingStores ? (
+            <ActivityIndicator />
+          ) : (
+            <CardsContainer>
+              {storess.map((item, index) => (
+                <StoreCard
+                  key={index}
+                  id={item.id}
+                  icon={item.icon}
+                  name={item.name}
+                  onPress={() => goToStoreScreen(item.id)}
+                />
+              ))}
+            </CardsContainer>
+          )}
         </ScrollView>
       </Container>
     </Background>
