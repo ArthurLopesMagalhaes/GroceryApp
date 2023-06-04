@@ -101,7 +101,7 @@ export const Favorites = () => {
         />
       </Container>
       <Modal
-        title="Are you sure want to logout?"
+        title="Are you sure want to remove this item from favorites?"
         cancelText="Cancel"
         doItText="Yes, remove"
         icon={EmptyHeartSvg}

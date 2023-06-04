@@ -47,7 +47,6 @@ export const Settings = () => {
     dispatch(setAge(0));
     dispatch(setAvatar(""));
     dispatch(setToken(""));
-    navigation.navigate("SignIn");
   };
 
   return (

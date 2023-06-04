@@ -36,13 +36,12 @@ export const Home = () => {
   const navigation = useNavigation();
 
   const goToFavorites = () => {
-    // null;
     // navigation.reset({
     //   routes: [
     //     { name: "ProfileStackScreens", params: { screen: "Favorites" } },
     //   ],
     // });
-    // navigation.navigate("ProfileStackScreens", { screen: "Favorites" });
+    navigation.navigate("ProfileStackScreens", { screen: "Favorites" });
   };
   const goToPopularStore = () => {
     navigation.navigate("PopularStore");

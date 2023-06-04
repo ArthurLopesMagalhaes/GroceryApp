@@ -63,7 +63,7 @@ export const TabRoutes = () => {
             ),
         }}
       />
-      <Screen
+      {/* <Screen
         name="ChatStackScreen"
         component={ChatStackScreens}
         options={{
@@ -77,7 +77,7 @@ export const TabRoutes = () => {
               <ChatSvg />
             ),
         }}
-      />
+      /> */}
       <Screen
         name="ProfileStackScreens"
         component={ProfileStackScreens}

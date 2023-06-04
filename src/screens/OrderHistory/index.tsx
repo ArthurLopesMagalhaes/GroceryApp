@@ -1,4 +1,4 @@
-import { FlatList } from "react-native";
+import { FlatList, View } from "react-native";
 import { Background } from "../../components/Background";
 import { Container } from "../../components/Container";
 import { Header } from "../../components/Header";
@@ -13,7 +13,10 @@ import {
   useAppDispatch,
   useAppSelector,
 } from "../../redux/hooks/useAppSelector";
+import LottieView from "lottie-react-native";
+
 import { api } from "../../services/api";
+import { CenteredView } from "./styles";
 
 export const OrderHistory = () => {
   const user = useAppSelector((state) => state.user);
@@ -48,14 +51,27 @@ export const OrderHistory = () => {
         <Header label="Order History" />
         <InputMenu />
 
-        <FlatList
-          contentContainerStyle={{ paddingTop: 10, paddingBottom: 90 }}
-          data={orders}
-          renderItem={({ item }) => <OrderHistoryItem data={item} />}
-          keyExtractor={(item) => item.id.toString()}
-          showsVerticalScrollIndicator={false}
-          ListEmptyComponent={() => <SmileySad size={20} color="red" />}
-        />
+        {orders.length > 0 ? (
+          <FlatList
+            contentContainerStyle={{ paddingTop: 10, paddingBottom: 90 }}
+            data={orders}
+            renderItem={({ item }) => <OrderHistoryItem data={item} />}
+            keyExtractor={(item) => item.id.toString()}
+            showsVerticalScrollIndicator={false}
+          />
+        ) : (
+          <CenteredView>
+            <LottieView
+              source={require("../../assets/lottie/no-product.json")}
+              autoPlay
+              loop={false}
+              style={{
+                width: 200,
+                height: 200,
+              }}
+            />
+          </CenteredView>
+        )}
       </Container>
     </Background>
   );

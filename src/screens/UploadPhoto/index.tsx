@@ -65,6 +65,7 @@ export const UploadPhoto = () => {
 
   const goToSetLocation = () => {
     uploadImg();
+    navigation.navigate("SetLocation");
   };
 
   const pickImage = async () => {

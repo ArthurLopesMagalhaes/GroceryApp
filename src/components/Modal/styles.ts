@@ -8,6 +8,7 @@ export const Text = styled.Text`
   font-size: 16px;
   color: ${theme.colors.neutral_1};
   margin-top: 12px;
+  text-align: center;
 `;
 
 export const BottomSheetContent = styled.View`

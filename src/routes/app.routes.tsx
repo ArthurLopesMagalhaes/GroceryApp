@@ -11,6 +11,7 @@ import { Others } from "../screens/Others";
 import { StoreHome } from "../screens/StoreHome";
 import { Testimonials } from "../screens/Testimonials";
 import { GroceryDetails } from "../screens/GroceryDetails";
+import { SignIn } from "../screens/SignIn";
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
@@ -24,13 +25,13 @@ export const AppRoutes = () => {
     >
       <Screen name="AuthStack" component={AuthStack} />
       <Screen name="TabRoutes" component={TabRoutes} />
-      <Screen name="OrderDetails" component={OrderDetails} />
       <Screen name="FindGrocery" component={FindGrocery} />
       <Screen name="Notification" component={Notification} />
       <Screen name="Others" component={Others} />
       <Screen name="StoreHome" component={StoreHome} />
       <Screen name="GroceryDetails" component={GroceryDetails} />
       <Screen name="Testimonials" component={Testimonials} />
+      <Screen name="SignIn" component={SignIn} />
     </Navigator>
   );
 };

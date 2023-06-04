@@ -75,13 +75,12 @@ export const SignIn = () => {
 
   const handleSignIn = async (data: FormData) => {
     const response = await api.post("/signin", data);
-    console.log(response.data);
     if (response.data.error) return;
-    console.log(response.data);
     dispatch(setToken(response.data.user.token));
     dispatch(setEmail(response.data.user.email));
     dispatch(setName(response.data.user.full_name));
     dispatch(setAvatar(response.data.user.profile_photo));
+    navigation.navigate("Home");
   };
 
   const goToSignUp = () => {
